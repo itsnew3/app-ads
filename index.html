@@ -22,13 +22,33 @@
         linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.65) 100%),
         url("hero.jpg");
       background-size: cover;
-      background-position: center;
+      background-position: right center;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      color: #fff;
+      text-align: left;
+      padding: 20px;
+    }
+
+    .top-nav {
+      position: absolute;
+      top: 31px;
+      right: 110px;
+      z-index: 2;
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 34px;
       color: #fff;
-      text-align: center;
-      padding: 20px;
+      font-size: 15px;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      user-select: none;
+    }
+
+    .top-nav span {
+      cursor: default;
+      opacity: 0.92;
     }
 
     .language-wrap {
@@ -52,8 +72,9 @@
     }
 
     .hero-content {
-      max-width: 700px;
+      max-width: 600px;
       z-index: 1;
+      margin-left: 40px;
     }
 
     h1 {
@@ -81,24 +102,37 @@
     }
 
     .support-title {
-      font-size: 18px;
-      font-weight: 600;
-      opacity: 0.85;
+      display: none;
     }
 
     .support-email {
+      margin-top: 0;
+      font-size: 13px;
+      font-weight: 400;
+      opacity: 0.75;
+      letter-spacing: 0.02em;
+    }
+
+    .year {
       margin-top: 6px;
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 12px;
+      opacity: 0.6;
     }
 
     @media (max-width: 600px) {
+      .top-nav {
+        top: 70px;
+        right: 20px;
+        gap: 18px;
+        font-size: 13px;
+      }
+
       .support-block {
         bottom: 24px;
       }
 
       .support-email {
-        font-size: 18px;
+        font-size: 13px;
       }
     }
   </style>
@@ -106,6 +140,12 @@
 <body>
 
   <section class="hero">
+
+    <div class="top-nav">
+      <span data-i18n="navApps">Apps</span>
+      <span data-i18n="navSocials">Socials</span>
+      <span data-i18n="navSupport">Support</span>
+    </div>
 
     <div class="language-wrap">
       <select id="languageSelect" class="language-select">
@@ -117,11 +157,18 @@
     <div class="hero-content">
       <h1 data-i18n="brand">Friendsphere.app</h1>
       <div class="subtitle" data-i18n="subtitle">We create apps that help people connect.</div>
+
+      <div class="buttons">
+        <div class="button button-red" data-i18n="explore">Explore Apps</div>
+        <div class="button button-ghost" data-i18n="learn">Learn More</div>
+      </div>
+    </div>
     </div>
 
     <div class="support-block">
       <div class="support-title" data-i18n="support">Support</div>
       <div class="support-email">friendsphere.app@icloud.com</div>
+      <div class="year">© 2026</div>
     </div>
 
   </section>
@@ -131,12 +178,22 @@
       en: {
         brand: "Friendsphere.app",
         subtitle: "We create apps that help people connect.",
-        support: "Support"
+        support: "Support",
+        navApps: "Apps",
+        navSocials: "Socials",
+        navSupport: "Support",
+        explore: "Explore Apps",
+        learn: "Learn More"
       },
       uk: {
         brand: "Friendsphere.app",
         subtitle: "Ми створюємо додатки, які допомагають людям знаходити одне одного.",
-        support: "Підтримка"
+        support: "Підтримка",
+        navApps: "Додатки",
+        navSocials: "Соцмережі",
+        navSupport: "Підтримка",
+        explore: "Переглянути додатки",
+        learn: "Дізнатися більше"
       }
     };
 
