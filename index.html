@@ -52,8 +52,76 @@
     }
 
     .top-nav span {
-      cursor: default;
       opacity: 0.94;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-button {
+      appearance: none;
+      border: none;
+      background: transparent;
+      padding: 0;
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.94;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
+
+    .apps-dropdown {
+      position: absolute;
+      top: 24px;
+      right: 50%;
+      transform: translateX(50%) translateY(-4px);
+      width: 170px;
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.42);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .apps-dropdown.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(50%) translateY(0);
+    }
+
+    .app-dropdown-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .app-dropdown-link:hover {
+      background: rgba(255,255,255,0.10);
+    }
+
+    .app-dropdown-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .app-dropdown-title {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.1;
     }
 
     .language-wrap {
@@ -385,7 +453,15 @@
   <section class="hero">
     <div class="top-bar">
       <div class="top-nav">
-        <span data-i18n="navApps">Apps</span>
+        <div class="nav-item">
+          <button class="nav-button" id="appsMenuBtn" type="button" data-i18n="navApps">Apps</button>
+          <div class="apps-dropdown" id="appsDropdown">
+            <a class="app-dropdown-link" href="apps/weird-or-normal/">
+              <img class="app-dropdown-icon" src="app-icon.png" alt="Weird or Normal app icon" />
+              <span class="app-dropdown-title" data-i18n="dropdownAppName">Weird or Normal</span>
+            </a>
+          </div>
+        </div>
         <span data-i18n="navSocials">Socials</span>
         <span data-i18n="navSupport">Support</span>
       </div>
@@ -479,6 +555,7 @@
         navApps: "Apps",
         navSocials: "Socials",
         navSupport: "Support",
+        dropdownAppName: "Weird or Normal",
         modalAppName: "Weird or Normal",
         modalTagline: "Fun questions. Honest answers.",
         modalDescription: "A game that brings friends closer with unexpected questions and real conversations.",
@@ -500,6 +577,7 @@
         navApps: "Додатки",
         navSocials: "Соцмережі",
         navSupport: "Підтримка",
+        dropdownAppName: "Стрьом чи норм?",
         modalAppName: "Стрьом чи норм?",
         modalTagline: "Живі питання. Чесні відповіді.",
         modalDescription: "Гра, яка зближує друзів через несподівані питання та справжні розмови.",
@@ -519,6 +597,8 @@
     const exploreBtn = document.getElementById("exploreBtn");
     const appsModal = document.getElementById("appsModal");
     const modalClose = document.getElementById("modalClose");
+    const appsMenuBtn = document.getElementById("appsMenuBtn");
+    const appsDropdown = document.getElementById("appsDropdown");
 
     function setLanguage(lang) {
       const dict = translations[lang] || translations.en;
@@ -535,6 +615,17 @@
 
     languageSelect.addEventListener("change", (event) => {
       setLanguage(event.target.value);
+    });
+
+    appsMenuBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      appsDropdown.classList.toggle("is-open");
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!appsDropdown.contains(event.target) && event.target !== appsMenuBtn) {
+        appsDropdown.classList.remove("is-open");
+      }
     });
 
     exploreBtn.addEventListener("click", () => {
