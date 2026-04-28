@@ -233,10 +233,10 @@
       width: min(720px, 100%);
       padding: 42px;
       border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.08);
-      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(28px);
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7);
     }
 
     .modal-close {
@@ -338,7 +338,18 @@
       gap: 12px;
       text-decoration: none;
       font-weight: 800;
-      cursor: default;
+      cursor: pointer;
+      transition: transform 0.12s ease, opacity 0.12s ease;
+    }
+
+    .store-button:hover {
+      transform: translateY(-1px);
+      opacity: 0.94;
+    }
+
+    .store-button:active {
+      transform: scale(0.97);
+      opacity: 0.88;
     }
 
     .store-button .store-icon {
@@ -385,7 +396,20 @@
       color: rgba(255,255,255,0.76);
       text-decoration: none;
       font-size: 14px;
-      cursor: default;
+      cursor: pointer;
+      transition: transform 0.12s ease, opacity 0.12s ease;
+      display: inline-block;
+    }
+
+    .privacy-link:hover {
+      color: #fff;
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .privacy-link:active {
+      transform: scale(0.96);
+      opacity: 0.8;
     }
 
     .support-block {
