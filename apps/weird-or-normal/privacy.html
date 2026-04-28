@@ -23,11 +23,26 @@
     }
 
     .back-link {
-      display: inline-block;
-      margin-bottom: 34px;
-      color: rgba(255,255,255,0.7);
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 18px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .back-link:hover {
+      background: rgba(255,255,255,0.18);
     }
 
     .back-link:hover {
@@ -116,7 +131,7 @@
 </head>
 <body>
   <main class="page">
-    <a class="back-link" href="../../">← Back to Friendsphere.app</a>
+    <a class="back-link" href="../">←</a>
 
     <section class="card">
       <h1>Privacy Policy</h1>
