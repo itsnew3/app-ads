@@ -162,13 +162,12 @@
 
     .modal-card {
       position: relative;
-      width: min(680px, 100%);
+      width: min(720px, 100%);
       padding: 42px;
       border-radius: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      background: rgba(255, 255, 255, 0.13);
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
-      backdrop-filter: blur(34px);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #0d0d0f;
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.85);
     }
 
     .modal-close {
@@ -178,27 +177,28 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.36);
-      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
       color: #fff;
-      font-size: 24px;
-      line-height: 1;
+      font-size: 22px;
       cursor: pointer;
     }
 
     .modal-main {
       display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 34px;
+      grid-template-columns: 130px 1fr;
+      gap: 28px;
       align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .app-icon-large {
-      width: 150px;
-      height: 150px;
-      border-radius: 34px;
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
       object-fit: cover;
-      box-shadow: 0 18px 44px rgba(0,0,0,0.38);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     .modal-title {
@@ -211,23 +211,50 @@
 
     .modal-tagline {
       margin-top: 10px;
-      color: rgba(255,255,255,0.78);
+      color: rgba(255,255,255,0.65);
       font-size: 17px;
       font-weight: 600;
     }
 
     .modal-description {
-      margin-top: 18px;
-      max-width: 390px;
-      color: rgba(255,255,255,0.84);
-      font-size: 17px;
+      margin-top: 14px;
+      max-width: 420px;
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
       line-height: 1.5;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .feature {
+      text-align: left;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .feature-title {
+      font-weight: 700;
+      margin-top: 8px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .feature-text {
+      margin-top: 6px;
+      line-height: 1.4;
     }
 
     .store-buttons {
       display: flex;
       gap: 14px;
-      margin-top: 34px;
+      margin-top: 26px;
       flex-wrap: wrap;
     }
 
@@ -268,18 +295,19 @@
     .app-store {
       background: #fff;
       color: #111;
+      box-shadow: 0 6px 18px rgba(255,255,255,0.15);
     }
 
     .google-play {
-      background: rgba(0,0,0,0.28);
+      background: #1a1a1d;
       color: #fff;
-      border: 1px solid rgba(255,255,255,0.24);
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .modal-footer {
-      margin-top: 30px;
-      padding-top: 22px;
-      border-top: 1px solid rgba(255,255,255,0.16);
+      margin-top: 34px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
       text-align: center;
     }
 
@@ -400,6 +428,21 @@
         </div>
       </div>
 
+      <div class="features">
+        <div class="feature">
+          <div class="feature-title" data-i18n="feature1Title">Ask</div>
+          <div class="feature-text" data-i18n="feature1Text">Hundreds of unusual questions.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-title" data-i18n="feature2Title">Connect</div>
+          <div class="feature-text" data-i18n="feature2Text">Learn more about your friends.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-title" data-i18n="feature3Title">Have fun</div>
+          <div class="feature-text" data-i18n="feature3Text">Honest answers make it real.</div>
+        </div>
+      </div>
+
       <div class="store-buttons">
         <div class="store-button app-store">
           <span class="store-icon"></span>
@@ -434,12 +477,18 @@
         navApps: "Apps",
         navSocials: "Socials",
         navSupport: "Support",
-        modalAppName: "Weird or Normal?",
+        modalAppName: "Weird or Normal",
         modalTagline: "Fun questions. Honest answers.",
         modalDescription: "A game that brings friends closer with unexpected questions and real conversations.",
         downloadOn: "Download on the",
         getItOn: "Get it on",
-        privacy: "Privacy Policy"
+        privacy: "Privacy Policy",
+        feature1Title: "Ask",
+        feature1Text: "Hundreds of unusual questions.",
+        feature2Title: "Connect",
+        feature2Text: "Learn more about your friends.",
+        feature3Title: "Have fun",
+        feature3Text: "Honest answers make it real."
       },
       uk: {
         brand: "Friendsphere.app",
@@ -449,12 +498,18 @@
         navApps: "Додатки",
         navSocials: "Соцмережі",
         navSupport: "Підтримка",
-        modalAppName: "Стрьом чи Норм?",
+        modalAppName: "Стрьом чи норм?",
         modalTagline: "Живі питання. Чесні відповіді.",
         modalDescription: "Гра, яка зближує друзів через несподівані питання та справжні розмови.",
         downloadOn: "Завантажити в",
         getItOn: "Доступно в",
-        privacy: "Політика конфіденційності"
+        privacy: "Політика конфіденційності",
+        feature1Title: "Запитуй",
+        feature1Text: "Сотні незвичних питань.",
+        feature2Title: "Знайомся",
+        feature2Text: "Дізнавайся більше про друзів.",
+        feature3Title: "Розважайся",
+        feature3Text: "Чесні відповіді — це справжнє."
       }
     };
 
