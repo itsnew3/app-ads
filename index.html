@@ -129,7 +129,7 @@
       font-weight: 750;
       line-height: 1;
       user-select: none;
-      cursor: default;
+      cursor: pointer;
       white-space: nowrap;
     }
 
@@ -142,6 +142,152 @@
       background: transparent;
       color: #fff;
       border: 1.4px solid rgba(255,255,255,0.84);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.48);
+      backdrop-filter: blur(14px);
+    }
+
+    .modal.is-open {
+      display: flex;
+    }
+
+    .modal-card {
+      position: relative;
+      width: min(680px, 100%);
+      padding: 42px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.13);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
+      backdrop-filter: blur(34px);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.36);
+      background: rgba(255,255,255,0.10);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .modal-main {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .app-icon-large {
+      width: 150px;
+      height: 150px;
+      border-radius: 34px;
+      object-fit: cover;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.38);
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+
+    .modal-tagline {
+      margin-top: 10px;
+      color: rgba(255,255,255,0.78);
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .modal-description {
+      margin-top: 18px;
+      max-width: 390px;
+      color: rgba(255,255,255,0.84);
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .store-buttons {
+      display: flex;
+      gap: 14px;
+      margin-top: 34px;
+      flex-wrap: wrap;
+    }
+
+    .store-button {
+      min-width: 186px;
+      min-height: 58px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      cursor: default;
+    }
+
+    .store-button .store-icon {
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .store-button .store-small {
+      display: block;
+      font-size: 10px;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      opacity: 0.8;
+      text-transform: uppercase;
+    }
+
+    .store-button .store-big {
+      display: block;
+      margin-top: 3px;
+      font-size: 19px;
+      line-height: 1;
+    }
+
+    .app-store {
+      background: #fff;
+      color: #111;
+    }
+
+    .google-play {
+      background: rgba(0,0,0,0.28);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.24);
+    }
+
+    .modal-footer {
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.16);
+      text-align: center;
+    }
+
+    .privacy-link {
+      color: rgba(255,255,255,0.76);
+      text-decoration: none;
+      font-size: 14px;
+      cursor: default;
     }
 
     .support-block {
@@ -227,7 +373,7 @@
       <div class="subtitle" data-i18n="subtitle">We create apps that help people connect.</div>
 
       <div class="buttons">
-        <div class="button button-red" data-i18n="explore">Explore Apps</div>
+        <div class="button button-red" id="exploreBtn" data-i18n="explore">Explore Apps</div>
         <div class="button button-ghost" data-i18n="learn">Learn More</div>
       </div>
     </div>
@@ -238,6 +384,46 @@
     </div>
   </section>
 
+  <div class="modal" id="appsModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="appModalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+
+      <div class="modal-main">
+        <img class="app-icon-large" src="app-icon.png" alt="Weird or Normal app icon" />
+
+        <div>
+          <h2 class="modal-title" id="appModalTitle" data-i18n="modalAppName">Weird or Normal</h2>
+          <div class="modal-tagline" data-i18n="modalTagline">Fun questions. Honest answers.</div>
+          <div class="modal-description" data-i18n="modalDescription">
+            A game that brings friends closer with unexpected questions and real conversations.
+          </div>
+        </div>
+      </div>
+
+      <div class="store-buttons">
+        <div class="store-button app-store">
+          <span class="store-icon"></span>
+          <span>
+            <span class="store-small" data-i18n="downloadOn">Download on the</span>
+            <span class="store-big">App Store</span>
+          </span>
+        </div>
+
+        <div class="store-button google-play">
+          <span class="store-icon">▶</span>
+          <span>
+            <span class="store-small" data-i18n="getItOn">Get it on</span>
+            <span class="store-big">Google Play</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <span class="privacy-link" data-i18n="privacy">Privacy Policy</span>
+      </div>
+    </div>
+  </div>
+
   <script>
     const translations = {
       en: {
@@ -247,7 +433,13 @@
         learn: "Learn More",
         navApps: "Apps",
         navSocials: "Socials",
-        navSupport: "Support"
+        navSupport: "Support",
+        modalAppName: "Weird or Normal?",
+        modalTagline: "Fun questions. Honest answers.",
+        modalDescription: "A game that brings friends closer with unexpected questions and real conversations.",
+        downloadOn: "Download on the",
+        getItOn: "Get it on",
+        privacy: "Privacy Policy"
       },
       uk: {
         brand: "Friendsphere.app",
@@ -256,11 +448,20 @@
         learn: "Дізнатися більше",
         navApps: "Додатки",
         navSocials: "Соцмережі",
-        navSupport: "Підтримка"
+        navSupport: "Підтримка",
+        modalAppName: "Стрьом чи Норм?",
+        modalTagline: "Живі питання. Чесні відповіді.",
+        modalDescription: "Гра, яка зближує друзів через несподівані питання та справжні розмови.",
+        downloadOn: "Завантажити в",
+        getItOn: "Доступно в",
+        privacy: "Політика конфіденційності"
       }
     };
 
     const languageSelect = document.getElementById("languageSelect");
+    const exploreBtn = document.getElementById("exploreBtn");
+    const appsModal = document.getElementById("appsModal");
+    const modalClose = document.getElementById("modalClose");
 
     function setLanguage(lang) {
       const dict = translations[lang] || translations.en;
@@ -277,6 +478,23 @@
 
     languageSelect.addEventListener("change", (event) => {
       setLanguage(event.target.value);
+    });
+
+    exploreBtn.addEventListener("click", () => {
+      appsModal.classList.add("is-open");
+      appsModal.setAttribute("aria-hidden", "false");
+    });
+
+    modalClose.addEventListener("click", () => {
+      appsModal.classList.remove("is-open");
+      appsModal.setAttribute("aria-hidden", "true");
+    });
+
+    appsModal.addEventListener("click", (event) => {
+      if (event.target === appsModal) {
+        appsModal.classList.remove("is-open");
+        appsModal.setAttribute("aria-hidden", "true");
+      }
     });
 
     setLanguage(localStorage.getItem("friendsphere_language") || "en");
