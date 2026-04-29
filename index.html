@@ -15,6 +15,10 @@
       color: #fff;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     .hero {
       position: relative;
       width: 100%;
@@ -84,10 +88,52 @@
       border: 1px solid rgba(255,255,255,0.14);
       background: rgba(0,0,0,0.42);
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       box-shadow: 0 12px 30px rgba(0,0,0,0.35);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .support-dropdown {
+      position: absolute;
+      top: 24px;
+      right: 0;
+      transform: translateY(-4px);
+      width: max-content;
+      min-width: 210px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.42);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .support-dropdown.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .support-email-link {
+      display: block;
+      color: rgba(255,255,255,0.92);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      padding: 4px 2px;
+      white-space: nowrap;
+    }
+
+    .support-email-link:hover {
+      color: #fff;
     }
 
     .apps-dropdown.is-open {
@@ -220,8 +266,9 @@
       align-items: center;
       justify-content: center;
       padding: 24px;
-      background: rgba(0, 0, 0, 0.48);
+      background: rgba(0, 0, 0, 0.55);
       backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
     .modal.is-open {
@@ -234,8 +281,9 @@
       padding: 42px;
       border-radius: 28px;
       border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(0,0,0,0.18);
+      background: rgba(0,0,0,0.28);
       backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
       box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7);
     }
 
@@ -476,6 +524,9 @@
         padding: 18px 14px;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        background: rgba(0, 0, 0, 0.72);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
       }
 
       .modal-card {
@@ -484,6 +535,7 @@
         margin: 20px auto;
         padding: 26px 18px 24px;
         border-radius: 24px;
+        background: rgba(0,0,0,0.42);
       }
 
       .modal-close {
@@ -568,7 +620,12 @@
           </div>
         </div>
         <span data-i18n="navSocials">Socials</span>
-        <span data-i18n="navSupport">Support</span>
+        <div class="nav-item">
+          <button class="nav-button" id="supportMenuBtn" type="button" data-i18n="navSupport">Support</button>
+          <div class="support-dropdown" id="supportDropdown">
+            <a class="support-email-link" href="mailto:friendsphere.app@icloud.com">friendsphere.app@icloud.com</a>
+          </div>
+        </div>
       </div>
 
       <div class="language-wrap">
@@ -704,6 +761,8 @@
     const modalClose = document.getElementById("modalClose");
     const appsMenuBtn = document.getElementById("appsMenuBtn");
     const appsDropdown = document.getElementById("appsDropdown");
+    const supportMenuBtn = document.getElementById("supportMenuBtn");
+    const supportDropdown = document.getElementById("supportDropdown");
 
     function setLanguage(lang) {
       const dict = translations[lang] || translations.en;
@@ -725,28 +784,42 @@
     appsMenuBtn.addEventListener("click", (event) => {
       event.stopPropagation();
       appsDropdown.classList.toggle("is-open");
+      supportDropdown.classList.remove("is-open");
+    });
+
+    supportMenuBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      supportDropdown.classList.toggle("is-open");
+      appsDropdown.classList.remove("is-open");
     });
 
     document.addEventListener("click", (event) => {
       if (!appsDropdown.contains(event.target) && event.target !== appsMenuBtn) {
         appsDropdown.classList.remove("is-open");
       }
+
+      if (!supportDropdown.contains(event.target) && event.target !== supportMenuBtn) {
+        supportDropdown.classList.remove("is-open");
+      }
     });
 
     exploreBtn.addEventListener("click", () => {
       appsModal.classList.add("is-open");
       appsModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
     });
 
     modalClose.addEventListener("click", () => {
       appsModal.classList.remove("is-open");
       appsModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
     });
 
     appsModal.addEventListener("click", (event) => {
       if (event.target === appsModal) {
         appsModal.classList.remove("is-open");
         appsModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
       }
     });
 
