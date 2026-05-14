@@ -95,8 +95,7 @@
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
 
-    .support-dropdown,
-    .socials-dropdown {
+    .support-dropdown {
       position: absolute;
       top: 24px;
       right: 0;
@@ -114,11 +113,34 @@
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
 
-    .support-dropdown.is-open,
-    .socials-dropdown.is-open {
+    .socials-dropdown {
+      position: absolute;
+      top: 24px;
+      right: 50%;
+      transform: translateX(50%) translateY(-4px);
+      width: 170px;
+      padding: 6px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.42);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .support-dropdown.is-open {
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
+    }
+
+    .socials-dropdown.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(50%) translateY(0);
     }
 
     .social-link {
@@ -142,15 +164,9 @@
     .instagram-icon {
       width: 18px;
       height: 18px;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      object-fit: contain;
       flex-shrink: 0;
-      background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
-      font-size: 12px;
-      font-weight: 900;
-      line-height: 1;
+      opacity: 0.95;
     }
 
     .support-email-row {
@@ -737,7 +753,7 @@
           <button class="nav-button" id="socialsMenuBtn" type="button" data-i18n="navSocials">Socials</button>
           <div class="socials-dropdown" id="socialsDropdown">
             <a class="social-link" href="https://instagram.com/weird.or.norm" target="_blank">
-              <span class="instagram-icon">◎</span>
+              <img class="instagram-icon" src="instagram.svg" alt="Instagram" />
               <span>Instagram</span>
             </a>
           </div>
