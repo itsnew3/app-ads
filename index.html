@@ -95,13 +95,14 @@
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
 
-    .support-dropdown {
+    .support-dropdown,
+    .socials-dropdown {
       position: absolute;
       top: 24px;
       right: 0;
       transform: translateY(-4px);
-      min-width: 210px;
-      padding: 10px 12px;
+      width: 235px;
+      padding: 6px;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.14);
       background: rgba(0,0,0,0.42);
@@ -113,10 +114,43 @@
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
 
-    .support-dropdown.is-open {
+    .support-dropdown.is-open,
+    .socials-dropdown.is-open {
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .social-link:hover {
+      background: rgba(255,255,255,0.10);
+    }
+
+    .instagram-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
     }
 
     .support-email-row {
@@ -124,8 +158,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 28px;
-      padding-top: 6px;
+      min-height: auto;
+      padding: 6px 14px;
+      border-radius: 8px;
+      transition: background 0.16s ease;
+    }
+
+    .support-email-row:hover {
+      background: rgba(255,255,255,0.10);
+      cursor: pointer;
+    }
     }
 
     .support-email-copy {
@@ -218,7 +260,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 8px;
+      padding: 4px 6px;
       border-radius: 8px;
       color: #fff;
       text-decoration: none;
@@ -229,8 +271,8 @@
     }
 
     .app-dropdown-icon {
-      width: 26px;
-      height: 26px;
+      width: 22px;
+      height: 22px;
       border-radius: 6px;
       object-fit: cover;
       flex-shrink: 0;
@@ -691,7 +733,15 @@
             </a>
           </div>
         </div>
-        <span data-i18n="navSocials">Socials</span>
+        <div class="nav-item">
+          <button class="nav-button" id="socialsMenuBtn" type="button" data-i18n="navSocials">Socials</button>
+          <div class="socials-dropdown" id="socialsDropdown">
+            <a class="social-link" href="https://instagram.com/weird.or.norm" target="_blank">
+              <span class="instagram-icon">◎</span>
+              <span>Instagram</span>
+            </a>
+          </div>
+        </div>
         <div class="nav-item">
           <button class="nav-button" id="supportMenuBtn" type="button" data-i18n="navSupport">Support</button>
           <div class="support-dropdown" id="supportDropdown">
@@ -838,6 +888,8 @@
     const appsDropdown = document.getElementById("appsDropdown");
     const supportMenuBtn = document.getElementById("supportMenuBtn");
     const supportDropdown = document.getElementById("supportDropdown");
+    const socialsMenuBtn = document.getElementById("socialsMenuBtn");
+    const socialsDropdown = document.getElementById("socialsDropdown");
     const emailCopyTarget = document.getElementById("emailCopyTarget");
     const copyFeedback = document.getElementById("copyFeedback");
 
@@ -862,12 +914,21 @@
       event.stopPropagation();
       appsDropdown.classList.toggle("is-open");
       supportDropdown.classList.remove("is-open");
+      socialsDropdown.classList.remove("is-open");
     });
 
     supportMenuBtn.addEventListener("click", (event) => {
       event.stopPropagation();
       supportDropdown.classList.toggle("is-open");
       appsDropdown.classList.remove("is-open");
+      socialsDropdown.classList.remove("is-open");
+    });
+
+    socialsMenuBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      socialsDropdown.classList.toggle("is-open");
+      appsDropdown.classList.remove("is-open");
+      supportDropdown.classList.remove("is-open");
     });
 
     document.addEventListener("click", (event) => {
@@ -877,6 +938,10 @@
 
       if (!supportDropdown.contains(event.target) && event.target !== supportMenuBtn) {
         supportDropdown.classList.remove("is-open");
+      }
+
+      if (!socialsDropdown.contains(event.target) && event.target !== socialsMenuBtn) {
+        socialsDropdown.classList.remove("is-open");
       }
     });
 
