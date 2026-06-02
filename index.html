@@ -1,1012 +1,2049 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Friendsphere.app</title>
 
+
+
   <style>
+
     * { box-sizing: border-box; }
 
+
+
     body {
+
       margin: 0;
+
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+
       background: #000;
+
       color: #fff;
+
     }
+
+
 
     body.modal-open {
+
       overflow: hidden;
+
     }
+
+
 
     .hero {
+
       position: relative;
+
       width: 100%;
+
       height: 100vh;
+
       min-height: 680px;
+
       overflow: hidden;
+
       background-image:
+
         linear-gradient(90deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.38) 34%, rgba(0,0,0,0.08) 74%),
+
         linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.10) 55%, rgba(0,0,0,0.48) 100%),
+
         url("hero.jpg");
+
       background-size: cover;
+
       background-position: center;
+
       background-repeat: no-repeat;
+
     }
+
+
 
     .top-bar {
+
       position: absolute;
+
       top: 22px;
+
       right: 26px;
+
       z-index: 3;
+
       display: flex;
+
       align-items: center;
+
       gap: 34px;
+
     }
+
+
 
     .top-nav {
+
       display: flex;
+
       align-items: center;
+
       gap: 34px;
+
       font-size: 15px;
+
       font-weight: 700;
+
       line-height: 1;
+
       text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+
       user-select: none;
+
     }
+
+
 
     .top-nav span {
+
       opacity: 0.94;
+
     }
+
+
 
     .nav-item {
+
       position: relative;
+
     }
+
+
 
     .nav-button {
+
       appearance: none;
+
       border: none;
+
       background: transparent;
+
       padding: 0;
+
       color: #fff;
+
       font: inherit;
+
       font-weight: 700;
+
       line-height: 1;
+
       cursor: pointer;
+
       opacity: 0.94;
+
       text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+
     }
+
+
 
     .apps-dropdown {
+
       position: absolute;
+
       top: 24px;
+
       right: 50%;
+
       transform: translateX(50%) translateY(-4px);
+
       width: 170px;
+
       padding: 6px;
+
       border-radius: 12px;
+
       border: 1px solid rgba(255,255,255,0.14);
+
       background: rgba(0,0,0,0.42);
+
       backdrop-filter: blur(18px);
+
       -webkit-backdrop-filter: blur(18px);
+
       box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+
       opacity: 0;
+
       pointer-events: none;
+
       transition: opacity 0.18s ease, transform 0.18s ease;
+
     }
+
+
 
     .support-dropdown {
+
       position: absolute;
+
       top: 24px;
+
       right: 0;
+
       transform: translateY(-4px);
+
       width: 235px;
+
       padding: 6px;
+
       border-radius: 14px;
+
       border: 1px solid rgba(255,255,255,0.14);
+
       background: rgba(0,0,0,0.42);
+
       backdrop-filter: blur(18px);
+
       -webkit-backdrop-filter: blur(18px);
+
       box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+
       opacity: 0;
+
       pointer-events: none;
+
       transition: opacity 0.18s ease, transform 0.18s ease;
+
     }
 
-    .socials-dropdown {
+
+
+    .socials-dropdown,
+
+    .contact-dropdown {
+
       position: absolute;
+
       top: 24px;
+
       right: 50%;
+
       transform: translateX(50%) translateY(-4px);
+
       width: 170px;
+
       padding: 6px;
+
       border-radius: 14px;
+
       border: 1px solid rgba(255,255,255,0.14);
+
       background: rgba(0,0,0,0.42);
+
       backdrop-filter: blur(18px);
+
       -webkit-backdrop-filter: blur(18px);
+
       box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+
       opacity: 0;
+
       pointer-events: none;
+
       transition: opacity 0.18s ease, transform 0.18s ease;
+
     }
+
+
 
     .support-dropdown.is-open {
+
       opacity: 1;
+
       pointer-events: auto;
+
       transform: translateY(0);
+
     }
 
-    .socials-dropdown.is-open {
+
+
+    .socials-dropdown.is-open,
+
+    .contact-dropdown.is-open {
+
       opacity: 1;
+
       pointer-events: auto;
+
       transform: translateX(50%) translateY(0);
+
     }
+
+
 
     .social-link {
+
       display: flex;
+
       align-items: center;
+
       gap: 9px;
+
       padding: 6px 8px;
+
       border-radius: 8px;
+
       color: #fff;
+
       text-decoration: none;
+
       font-size: 13px;
+
       font-weight: 700;
+
       line-height: 1.2;
+
       white-space: nowrap;
+
     }
+
+
 
     .social-link:hover {
+
       background: rgba(255,255,255,0.10);
+
     }
+
+
 
     .instagram-icon {
+
       width: 18px;
+
       height: 18px;
+
       object-fit: contain;
+
       flex-shrink: 0;
+
       opacity: 0.95;
+
     }
+
+
 
     .support-email-row {
+
       position: relative;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       min-height: auto;
+
       padding: 6px 14px;
+
       border-radius: 8px;
+
       transition: background 0.16s ease;
+
     }
+
+
 
     .support-email-row:hover {
+
       background: rgba(255,255,255,0.10);
+
       cursor: pointer;
+
     }
+
     }
+
+
 
     .support-email-copy {
+
       color: rgba(255,255,255,0.92);
+
       font-size: 13px;
+
       font-weight: 700;
+
       line-height: 1.2;
+
       letter-spacing: 0.01em;
+
       white-space: nowrap;
+
       cursor: pointer;
+
       user-select: none;
+
       transition: opacity 0.16s ease;
+
     }
+
+
 
     .support-email-copy:hover {
+
       opacity: 1;
+
       color: #fff;
+
     }
+
+
 
     .copy-feedback {
+
       position: absolute;
+
       left: calc(100% + 18px);
+
       top: 50%;
+
       transform: translateY(-50%);
 
+
+
       width: 9px;
+
       height: 9px;
 
+
+
       opacity: 0;
+
       visibility: hidden;
+
       pointer-events: none;
+
       transition: opacity 0.16s ease;
+
     }
+
+
 
     .copy-feedback::before,
+
     .copy-feedback::after {
+
       content: "";
+
       position: absolute;
+
       width: 7px;
+
       height: 7px;
+
       border: 2px solid rgba(255,255,255,0.9);
+
       border-radius: 3px;
+
     }
+
+
 
     .copy-feedback::before {
+
       top: 0;
+
       left: 3px;
+
       opacity: 0.6;
+
     }
+
+
 
     .copy-feedback::after {
+
       top: 3px;
+
       left: 0;
+
     }
 
-    .copy-feedback.show {
-      opacity: 1;
-      visibility: visible;
-    }
+
 
     .copy-feedback.show {
+
       opacity: 1;
+
       visibility: visible;
+
     }
 
+
+
     .copy-feedback.show {
+
       opacity: 1;
+
       visibility: visible;
+
+    }
+
+
+
+    .copy-feedback.show {
+
+      opacity: 1;
+
+      visibility: visible;
+
       transform: translateX(-50%) translateY(0);
+
     }
 
+
+
     .copy-feedback.show {
+
       opacity: 1;
+
       visibility: visible;
+
       transform: translateY(-50%) translateX(0);
+
     }
 
+
+
     .copy-feedback.show {
+
       opacity: 1;
+
       transform: translateY(-50%) translateX(0);
+
     }
+
+
 
     .apps-dropdown.is-open {
+
       opacity: 1;
+
       pointer-events: auto;
+
       transform: translateX(50%) translateY(0);
+
     }
+
+
 
     .app-dropdown-link {
+
       display: flex;
+
       align-items: center;
+
       gap: 8px;
+
       padding: 4px 6px;
+
       border-radius: 8px;
+
       color: #fff;
+
       text-decoration: none;
+
     }
+
+
 
     .app-dropdown-link:hover {
+
       background: rgba(255,255,255,0.10);
+
     }
+
+
 
     .app-dropdown-icon {
+
       width: 22px;
+
       height: 22px;
+
       border-radius: 6px;
+
       object-fit: cover;
+
       flex-shrink: 0;
+
     }
+
+
 
     .app-dropdown-title {
+
       font-size: 12px;
+
       font-weight: 700;
+
       line-height: 1.1;
+
     }
+
+
 
     .language-wrap {
+
       position: relative;
+
       z-index: 3;
+
       display: flex;
+
       align-items: center;
+
     }
 
+
+
     .language-select {
+
       appearance: none;
+
       -webkit-appearance: none;
+
       background: rgba(255,255,255,0.14);
+
       color: #fff;
+
       border: 1px solid rgba(255,255,255,0.56);
+
       border-radius: 999px;
+
       padding: 8px 15px;
+
       font-size: 14px;
+
       font-weight: 700;
+
       line-height: 1;
+
       outline: none;
+
       cursor: pointer;
+
       backdrop-filter: blur(10px);
+
     }
+
+
 
     
 
+
+
     .language-select option {
+
       color: #111;
+
       background: #fff;
+
     }
+
+
 
     .hero-content {
+
       position: absolute;
+
       left: 62px;
+
       top: 50%;
+
       transform: translateY(-50%);
+
       z-index: 2;
+
       max-width: 560px;
+
       text-align: left;
+
     }
+
+
 
     h1 {
+
       margin: 0;
+
       font-size: clamp(46px, 5.6vw, 74px);
+
       line-height: 0.98;
+
       letter-spacing: -0.055em;
+
       font-weight: 800;
+
       text-shadow: 0 4px 22px rgba(0,0,0,0.35);
+
     }
+
+
 
     .subtitle {
+
       margin-top: 18px;
+
       max-width: 370px;
+
       font-size: clamp(22px, 2.5vw, 34px);
+
       line-height: 1.32;
+
       font-weight: 600;
+
       letter-spacing: -0.035em;
+
       text-shadow: 0 3px 18px rgba(0,0,0,0.38);
+
     }
+
+
 
     .buttons {
+
       display: flex;
+
       gap: 14px;
+
       margin-top: 30px;
+
       align-items: center;
+
     }
+
+
 
     .button {
+
       border-radius: 999px;
+
       padding: 15px 31px;
+
       font-size: 16px;
+
       font-weight: 750;
+
       line-height: 1;
+
       user-select: none;
+
       cursor: pointer;
+
       white-space: nowrap;
+
     }
+
+
 
     .button-red {
+
       background: #f0141e;
+
       color: #fff;
+
     }
+
+
 
     .button-ghost {
+
       background: transparent;
+
       color: #fff;
+
       border: 1.4px solid rgba(255,255,255,0.84);
+
     }
+
+
 
     .modal {
+
       position: fixed;
+
       inset: 0;
+
       z-index: 20;
+
       display: none;
+
       align-items: center;
+
       justify-content: center;
+
       padding: 24px;
+
       background: rgba(0, 0, 0, 0.55);
+
       backdrop-filter: blur(14px);
+
       -webkit-backdrop-filter: blur(14px);
+
     }
+
+
 
     .modal.is-open {
+
       display: flex;
+
     }
+
+
 
     .modal-card {
+
       position: relative;
+
       width: min(720px, 100%);
+
       padding: 42px;
+
       border-radius: 28px;
+
       border: 1px solid rgba(255,255,255,0.12);
+
       background: rgba(0,0,0,0.28);
+
       backdrop-filter: blur(28px);
+
       -webkit-backdrop-filter: blur(28px);
+
       box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7);
+
     }
+
+
 
     .modal-close {
+
       position: absolute;
+
       top: 18px;
+
       right: 18px;
+
       width: 36px;
+
       height: 36px;
+
       border-radius: 50%;
+
       border: 1px solid rgba(255,255,255,0.12);
+
       background: rgba(255,255,255,0.04);
+
       color: #fff;
+
       font-size: 22px;
+
       cursor: pointer;
+
     }
+
+
 
     .modal-main {
+
       display: grid;
+
       grid-template-columns: 130px 1fr;
+
       gap: 28px;
+
       align-items: center;
+
       padding-bottom: 24px;
+
       border-bottom: 1px solid rgba(255,255,255,0.08);
+
     }
+
+
 
     .app-icon-large {
+
       width: 120px;
+
       height: 120px;
+
       border-radius: 28px;
+
       object-fit: cover;
+
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
     }
+
+
 
     .modal-title {
+
       margin: 0;
+
       font-size: 34px;
+
       line-height: 1.05;
+
       letter-spacing: -0.04em;
+
       font-weight: 800;
+
     }
+
+
 
     .modal-tagline {
+
       margin-top: 10px;
+
       color: rgba(255,255,255,0.65);
+
       font-size: 17px;
+
       font-weight: 600;
+
     }
+
+
 
     .modal-description {
+
       margin-top: 14px;
+
       max-width: 420px;
+
       color: rgba(255,255,255,0.75);
+
       font-size: 15px;
+
       line-height: 1.5;
+
     }
+
+
 
     .features {
+
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
+
       gap: 18px;
+
       margin-top: 24px;
+
       padding-bottom: 24px;
+
       border-bottom: 1px solid rgba(255,255,255,0.08);
+
     }
+
+
 
     .feature {
+
       text-align: left;
+
       font-size: 13px;
+
       color: rgba(255,255,255,0.75);
+
     }
+
+
 
     .feature-title {
+
       font-weight: 700;
+
       margin-top: 8px;
+
       color: #fff;
+
       font-size: 14px;
+
     }
+
+
 
     .feature-text {
+
       margin-top: 6px;
+
       line-height: 1.4;
+
     }
+
+
 
     .store-buttons {
+
       display: flex;
+
       gap: 24px;
+
       margin-top: 30px;
+
       flex-wrap: wrap;
+
       justify-content: center;
+
     }
+
+
 
     .store-button {
+
       min-width: 186px;
+
       min-height: 58px;
+
       border-radius: 12px;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       gap: 12px;
+
       text-decoration: none;
+
       font-weight: 800;
+
       cursor: pointer;
+
       transition: transform 0.12s ease, opacity 0.12s ease;
+
     }
+
+
 
     .store-button:hover {
+
       transform: translateY(-1px);
+
       opacity: 0.94;
+
     }
+
+
 
     .store-button:active {
+
       transform: scale(0.97);
+
       opacity: 0.88;
+
     }
+
+
 
     .store-button .store-icon {
+
       font-size: 26px;
+
       line-height: 1;
+
     }
+
+
 
     .store-button .store-small {
+
       display: block;
+
       font-size: 10px;
+
       line-height: 1;
+
       letter-spacing: 0.02em;
+
       opacity: 0.8;
+
       text-transform: uppercase;
+
     }
+
+
 
     .store-button .store-big {
+
       display: block;
+
       margin-top: 3px;
+
       font-size: 19px;
+
       line-height: 1;
+
     }
+
+
 
     .app-store {
+
       background: #fff;
+
       color: #111;
+
       box-shadow: 0 6px 18px rgba(255,255,255,0.15);
+
     }
+
+
 
     .google-play {
+
       background: #1a1a1d;
+
       color: #fff;
+
       border: 1px solid rgba(255,255,255,0.12);
+
     }
+
+
 
     .modal-footer {
+
       margin-top: 34px;
+
       padding-top: 20px;
+
       border-top: 1px solid rgba(255,255,255,0.08);
+
       text-align: center;
+
     }
+
+
 
     .privacy-link {
+
       color: rgba(255,255,255,0.76);
+
       text-decoration: none;
+
       font-size: 14px;
+
       cursor: pointer;
+
       transition: transform 0.12s ease, opacity 0.12s ease;
+
       display: inline-block;
+
     }
+
+
 
     .privacy-link:hover {
+
       color: #fff;
+
       opacity: 0.9;
+
       transform: translateY(-1px);
+
     }
+
+
 
     .privacy-link:active {
+
       transform: scale(0.96);
+
       opacity: 0.8;
+
     }
+
+
 
     .support-block {
+
       position: absolute;
+
       bottom: 18px;
+
       left: 50%;
+
       transform: translateX(-50%);
+
       z-index: 2;
+
       text-align: center;
+
       color: #fff;
+
       white-space: nowrap;
+
     }
+
+
 
     .support-email {
+
       font-size: 12px;
+
       font-weight: 400;
+
       opacity: 0.72;
+
       letter-spacing: 0.015em;
+
     }
+
+
 
     .year {
+
       margin-top: 5px;
+
       font-size: 11px;
+
       opacity: 0.55;
+
     }
+
+
 
     @media (max-width: 760px) {
+
       .hero {
+
         min-height: 620px;
+
         background-image:
+
           linear-gradient(90deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.38) 34%, rgba(0,0,0,0.08) 74%),
+
           linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.10) 55%, rgba(0,0,0,0.48) 100%),
+
           url("hero1.jpg");
+
         background-position: center;
+
       }
+
+
 
       .top-bar {
+
         top: 22px;
+
         right: 20px;
+
         gap: 18px;
+
       }
+
+
 
       .top-nav {
+
         gap: 18px;
+
         font-size: 13px;
+
       }
+
+
 
       .hero-content {
+
         left: 28px;
+
         right: 22px;
+
         max-width: none;
+
       }
+
+
 
       .buttons {
+
         flex-wrap: wrap;
+
       }
+
+
 
       .button {
+
         padding: 14px 24px;
+
       }
+
+
 
       .modal {
+
         align-items: flex-start;
+
         padding: 18px 14px;
+
         overflow-y: auto;
+
         -webkit-overflow-scrolling: touch;
+
         background: rgba(0, 0, 0, 0.72);
+
         backdrop-filter: blur(16px);
+
         -webkit-backdrop-filter: blur(16px);
+
       }
+
+
 
       .modal-card {
+
         width: 100%;
+
         max-width: 420px;
+
         margin: 20px auto;
+
         padding: 26px 18px 24px;
+
         border-radius: 24px;
+
         background: rgba(0,0,0,0.42);
+
       }
+
+
 
       .modal-close {
+
         top: 14px;
+
         right: 14px;
+
         width: 34px;
+
         height: 34px;
+
         font-size: 21px;
+
       }
+
+
 
       .modal-main {
+
         grid-template-columns: 1fr;
+
         gap: 16px;
+
         text-align: center;
+
         padding-bottom: 20px;
+
       }
+
+
 
       .app-icon-large {
+
         width: 96px;
+
         height: 96px;
+
         border-radius: 22px;
+
         margin: 0 auto;
+
       }
+
+
 
       .modal-title {
+
         font-size: 30px;
+
         padding: 0 34px;
+
       }
+
+
 
       .modal-tagline {
+
         font-size: 16px;
+
       }
+
+
 
       .modal-description {
+
         max-width: none;
+
         font-size: 14px;
+
       }
+
+
 
       .features {
+
         grid-template-columns: 1fr;
+
         gap: 12px;
+
         margin-top: 18px;
+
         padding-bottom: 20px;
+
       }
+
+
 
       .feature {
+
         text-align: center;
+
       }
+
+
 
       .feature-title {
+
         margin-top: 0;
+
       }
+
+
 
       .store-buttons {
+
         gap: 12px;
+
         margin-top: 22px;
+
       }
+
+
 
       .store-button {
+
         width: 100%;
+
         min-height: 56px;
+
       }
+
+
 
       .modal-footer {
+
         margin-top: 24px;
+
         padding-top: 18px;
+
       }
+
     }
+
   </style>
+
 </head>
+
 <body>
+
   <section class="hero">
+
     <div class="top-bar">
+
       <div class="top-nav">
+
         <div class="nav-item">
+
           <button class="nav-button" id="appsMenuBtn" type="button" data-i18n="navApps">Apps</button>
+
           <div class="apps-dropdown" id="appsDropdown">
+
             <a class="app-dropdown-link" href="apps/weird-or-normal/">
+
               <img class="app-dropdown-icon" src="app-icon.png" alt="Weird or Normal app icon" />
+
               <span class="app-dropdown-title" data-i18n="dropdownAppName">Weird or Normal</span>
+
             </a>
+
           </div>
+
         </div>
+
         <div class="nav-item">
+
           <button class="nav-button" id="socialsMenuBtn" type="button" data-i18n="navSocials">Socials</button>
+
           <div class="socials-dropdown" id="socialsDropdown">
+
             <a class="social-link" href="https://instagram.com/weird.or.normal" target="_blank">
+
               <img class="instagram-icon" src="instagram.svg" alt="Instagram" />
-              <span>Instagram</span>
+
+              <span>Weird or Normal</span>
+
             </a>
+
           </div>
+
         </div>
+
         <div class="nav-item">
-          <button class="nav-button" id="supportMenuBtn" type="button" data-i18n="navSupport">Support</button>
-          <div class="support-dropdown" id="supportDropdown">
-            <div class="support-email-row">
-              <span class="support-email-copy" id="emailCopyTarget">friendsphere.app@icloud.com</span>
-              <span class="copy-feedback" id="copyFeedback"></span>
-            </div>
+
+          <button class="nav-button" id="contactMenuBtn" type="button" data-i18n="navContact">Contact</button>
+
+          <div class="contact-dropdown" id="contactDropdown">
+
+            <a class="social-link" href="https://instagram.com/itsnew3" target="_blank">
+
+              <img class="instagram-icon" src="instagram.svg" alt="Instagram" />
+
+              <span>Instagram</span>
+
+            </a>
+
           </div>
+
         </div>
+
+        <div class="nav-item">
+
+          <button class="nav-button" id="supportMenuBtn" type="button" data-i18n="navSupport">Support</button>
+
+          <div class="support-dropdown" id="supportDropdown">
+
+            <div class="support-email-row">
+
+              <span class="support-email-copy" id="emailCopyTarget">friendsphere.app@icloud.com</span>
+
+              <span class="copy-feedback" id="copyFeedback"></span>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
+
 
       <div class="language-wrap">
+
         <select id="languageSelect" class="language-select" aria-label="Language">
+
           <option value="en">EN</option>
+
           <option value="uk">UA</option>
+
         </select>
+
       </div>
+
     </div>
+
+
 
     <div class="hero-content">
+
       <h1 data-i18n="brand">Friendsphere.app</h1>
+
       <div class="subtitle" data-i18n="subtitle">We create apps that help people connect.</div>
 
+
+
       <div class="buttons">
+
         <div class="button button-red" id="exploreBtn" data-i18n="explore">Explore Apps</div>
+
         <div class="button button-ghost" data-i18n="learn">Learn More</div>
+
       </div>
+
     </div>
+
+
 
     <div class="support-block">
+
       <div class="support-email">Friendsphere.app</div>
+
       <div class="year">© 2026</div>
+
     </div>
+
   </section>
 
+
+
   <div class="modal" id="appsModal" aria-hidden="true">
+
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="appModalTitle">
+
       <button class="modal-close" id="modalClose" aria-label="Close">×</button>
 
+
+
       <div class="modal-main">
+
         <img class="app-icon-large" src="app-icon.png" alt="Weird or Normal app icon" />
 
+
+
         <div>
+
           <h2 class="modal-title" id="appModalTitle" data-i18n="modalAppName">Weird or Normal</h2>
+
           <div class="modal-tagline" data-i18n="modalTagline">Fun questions. Honest answers.</div>
+
           <div class="modal-description" data-i18n="modalDescription">
+
             A game that brings friends closer with unexpected questions and real conversations.
+
           </div>
+
         </div>
+
       </div>
+
+
 
       <div class="features">
+
         <div class="feature">
+
           <div class="feature-title" data-i18n="feature1Title">Ask</div>
+
           <div class="feature-text" data-i18n="feature1Text">Hundreds of unusual questions.</div>
+
         </div>
+
         <div class="feature">
+
           <div class="feature-title" data-i18n="feature2Title">Connect</div>
+
           <div class="feature-text" data-i18n="feature2Text">Learn more about your friends.</div>
+
         </div>
+
         <div class="feature">
+
           <div class="feature-title" data-i18n="feature3Title">Have fun</div>
+
           <div class="feature-text" data-i18n="feature3Text">Honest answers make it real.</div>
+
         </div>
+
       </div>
+
+
 
       <div class="store-buttons">
+
         <a class="store-button app-store" href="https://apps.apple.com/app/id6757619381" target="_blank">
+
           <span class="store-icon"></span>
+
           <span>
+
             <span class="store-small" data-i18n="downloadOn">Download on the</span>
+
             <span class="store-big">App Store</span>
+
           </span>
+
         </a>
+
+
 
         <a class="store-button google-play" href="https://play.google.com/store/apps/details?id=app.friendsphere.weirdornormal" target="_blank">
+
           <span class="store-icon">▶</span>
+
           <span>
+
             <span class="store-small" data-i18n="getItOn">Get it on</span>
+
             <span class="store-big">Google Play</span>
+
           </span>
+
         </a>
+
       </div>
+
+
 
       <div class="modal-footer">
+
         <a href="apps/weird-or-normal/privacy.html" class="privacy-link" data-i18n="privacy">Privacy Policy</a>
+
       </div>
+
     </div>
+
   </div>
 
+
+
   <script>
+
     const translations = {
+
       en: {
+
         brand: "Friendsphere.app",
+
         subtitle: "We create apps that help people connect.",
+
         explore: "Explore Apps",
+
         learn: "Learn More",
+
         navApps: "Apps",
+
         navSocials: "Socials",
+
+        navContact: "Contact",
+
         navSupport: "Support",
+
         dropdownAppName: "Weird or Normal",
+
         modalAppName: "Weird or Normal",
+
         modalTagline: "Fun questions. Honest answers.",
+
         modalDescription: "A game that brings friends closer with unexpected questions and real conversations.",
+
         downloadOn: "Download on the",
+
         getItOn: "Get it on",
+
         privacy: "Privacy Policy",
+
         feature1Title: "Ask",
+
         feature1Text: "Hundreds of unusual questions.",
+
         feature2Title: "Connect",
+
         feature2Text: "Learn more about your friends.",
+
         feature3Title: "Have fun",
+
         feature3Text: "Honest answers make it real."
+
       },
+
       uk: {
+
         brand: "Friendsphere.app",
+
         subtitle: "Ми створюємо додатки, які допомагають людям знаходити одне одного.",
+
         explore: "Переглянути додатки",
+
         learn: "Дізнатися більше",
+
         navApps: "Додатки",
+
         navSocials: "Соцмережі",
+
+        navContact: "Контакт",
+
         navSupport: "Підтримка",
+
         dropdownAppName: "Стрьом чи норм?",
+
         modalAppName: "Стрьом чи норм?",
+
         modalTagline: "Живі питання. Чесні відповіді.",
+
         modalDescription: "Гра, яка зближує друзів через несподівані питання та справжні розмови.",
+
         downloadOn: "Завантажити в",
+
         getItOn: "Доступно в",
+
         privacy: "Політика конфіденційності",
+
         feature1Title: "Запитуй",
+
         feature1Text: "Сотні незвичних питань.",
+
         feature2Title: "Знайомся",
+
         feature2Text: "Дізнавайся більше про друзів.",
+
         feature3Title: "Розважайся",
+
         feature3Text: "Чесні відповіді — це справжнє."
+
       }
+
     };
 
+
+
     const languageSelect = document.getElementById("languageSelect");
+
     const exploreBtn = document.getElementById("exploreBtn");
+
     const appsModal = document.getElementById("appsModal");
+
     const modalClose = document.getElementById("modalClose");
+
     const appsMenuBtn = document.getElementById("appsMenuBtn");
+
     const appsDropdown = document.getElementById("appsDropdown");
+
     const supportMenuBtn = document.getElementById("supportMenuBtn");
+
     const supportDropdown = document.getElementById("supportDropdown");
+
     const socialsMenuBtn = document.getElementById("socialsMenuBtn");
+
     const socialsDropdown = document.getElementById("socialsDropdown");
+
+    const contactMenuBtn = document.getElementById("contactMenuBtn");
+
+    const contactDropdown = document.getElementById("contactDropdown");
+
     const emailCopyTarget = document.getElementById("emailCopyTarget");
+
     const copyFeedback = document.getElementById("copyFeedback");
 
+    const dropdownMenus = [
+
+      { button: appsMenuBtn, dropdown: appsDropdown },
+
+      { button: socialsMenuBtn, dropdown: socialsDropdown },
+
+      { button: contactMenuBtn, dropdown: contactDropdown },
+
+      { button: supportMenuBtn, dropdown: supportDropdown }
+
+    ];
+
+
+
     function setLanguage(lang) {
+
       const dict = translations[lang] || translations.en;
+
       document.documentElement.lang = lang;
+
       localStorage.setItem("friendsphere_language", lang);
 
+
+
       document.querySelectorAll("[data-i18n]").forEach((el) => {
+
         const key = el.getAttribute("data-i18n");
+
         el.innerHTML = dict[key];
+
       });
 
+
+
       languageSelect.value = lang;
+
     }
+
+
 
     languageSelect.addEventListener("change", (event) => {
+
       setLanguage(event.target.value);
+
     });
 
-    appsMenuBtn.addEventListener("click", (event) => {
-      event.stopPropagation();
-      appsDropdown.classList.toggle("is-open");
-      supportDropdown.classList.remove("is-open");
-      socialsDropdown.classList.remove("is-open");
-    });
 
-    supportMenuBtn.addEventListener("click", (event) => {
-      event.stopPropagation();
-      supportDropdown.classList.toggle("is-open");
-      appsDropdown.classList.remove("is-open");
-      socialsDropdown.classList.remove("is-open");
-    });
 
-    socialsMenuBtn.addEventListener("click", (event) => {
-      event.stopPropagation();
-      socialsDropdown.classList.toggle("is-open");
-      appsDropdown.classList.remove("is-open");
-      supportDropdown.classList.remove("is-open");
-    });
+    function closeDropdowns(exceptDropdown) {
 
-    document.addEventListener("click", (event) => {
-      if (!appsDropdown.contains(event.target) && event.target !== appsMenuBtn) {
-        appsDropdown.classList.remove("is-open");
-      }
+      dropdownMenus.forEach(({ dropdown }) => {
 
-      if (!supportDropdown.contains(event.target) && event.target !== supportMenuBtn) {
-        supportDropdown.classList.remove("is-open");
-      }
+        if (dropdown !== exceptDropdown) {
 
-      if (!socialsDropdown.contains(event.target) && event.target !== socialsMenuBtn) {
-        socialsDropdown.classList.remove("is-open");
-      }
-    });
+          dropdown.classList.remove("is-open");
 
-    function copySupportEmail() {
-      const email = "friendsphere.app@icloud.com";
+        }
 
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(email);
-      } else {
-        const tempInput = document.createElement("input");
-        tempInput.value = email;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-      }
+      });
 
-      copyFeedback.classList.add("show");
-      setTimeout(() => {
-        copyFeedback.classList.remove("show");
-      }, 650);
     }
 
-    emailCopyTarget.addEventListener("click", (event) => {
-      event.stopPropagation();
-      copySupportEmail();
+
+
+    dropdownMenus.forEach(({ button, dropdown }) => {
+
+      button.addEventListener("click", (event) => {
+
+        event.stopPropagation();
+
+        const shouldOpen = !dropdown.classList.contains("is-open");
+
+        closeDropdowns(dropdown);
+
+        dropdown.classList.toggle("is-open", shouldOpen);
+
+      });
+
     });
+
+
+
+    document.addEventListener("click", (event) => {
+
+      const clickedInsideMenu = dropdownMenus.some(({ button, dropdown }) => (
+
+        button === event.target || dropdown.contains(event.target)
+
+      ));
+
+
+
+      if (!clickedInsideMenu) {
+
+        closeDropdowns();
+
+      }
+
+    });
+
+
+
+    function copySupportEmail() {
+
+      const email = "friendsphere.app@icloud.com";
+
+
+
+      if (navigator.clipboard && window.isSecureContext) {
+
+        navigator.clipboard.writeText(email);
+
+      } else {
+
+        const tempInput = document.createElement("input");
+
+        tempInput.value = email;
+
+        document.body.appendChild(tempInput);
+
+        tempInput.select();
+
+        document.execCommand("copy");
+
+        document.body.removeChild(tempInput);
+
+      }
+
+
+
+      copyFeedback.classList.add("show");
+
+      setTimeout(() => {
+
+        copyFeedback.classList.remove("show");
+
+      }, 650);
+
+    }
+
+
+
+    emailCopyTarget.addEventListener("click", (event) => {
+
+      event.stopPropagation();
+
+      copySupportEmail();
+
+    });
+
+
 
     exploreBtn.addEventListener("click", () => {
+
       appsModal.classList.add("is-open");
+
       appsModal.setAttribute("aria-hidden", "false");
+
       document.body.classList.add("modal-open");
+
     });
+
+
 
     modalClose.addEventListener("click", () => {
+
       appsModal.classList.remove("is-open");
+
       appsModal.setAttribute("aria-hidden", "true");
+
       document.body.classList.remove("modal-open");
+
     });
+
+
 
     appsModal.addEventListener("click", (event) => {
+
       if (event.target === appsModal) {
+
         appsModal.classList.remove("is-open");
+
         appsModal.setAttribute("aria-hidden", "true");
+
         document.body.classList.remove("modal-open");
+
       }
+
     });
 
+
+
     setLanguage(localStorage.getItem("friendsphere_language") || "en");
+
   </script>
+
 </body>
+
 </html>
