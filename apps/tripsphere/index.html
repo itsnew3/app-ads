@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripSphere</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(36,129,255,0.30), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(61,220,151,0.16), transparent 30%),
+        #07090d;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 36px 20px;
+    }
+
+    .card {
+      position: relative;
+      width: min(760px, 100%);
+      padding: 46px;
+      border-radius: 32px;
+      background: rgba(0,0,0,0.20);
+      border: 1px solid rgba(255,255,255,0.13);
+      box-shadow: 0 40px 120px rgba(0,0,0,0.55);
+      backdrop-filter: blur(28px);
+      text-align: center;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .back-link:hover {
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+    }
+
+    .app-icon {
+      width: 142px;
+      height: 142px;
+      border-radius: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 26px;
+      color: #fff;
+      font-size: 54px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.28), rgba(255,255,255,0.02)),
+        linear-gradient(135deg, #1c7cff, #23d18b);
+      box-shadow: 0 20px 55px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 68px);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      font-weight: 850;
+    }
+
+    .tagline {
+      margin-top: 16px;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .description {
+      max-width: 540px;
+      margin: 20px auto 0;
+      color: rgba(255,255,255,0.72);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .feature {
+      text-align: left;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .feature-title {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .feature-text {
+      color: rgba(255,255,255,0.68);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .store-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      margin-top: 34px;
+      flex-wrap: wrap;
+    }
+
+    .store-button {
+      min-width: 190px;
+      min-height: 60px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      cursor: default;
+      opacity: 0.82;
+    }
+
+    .store-icon {
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .store-small {
+      display: block;
+      font-size: 10px;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      opacity: 0.8;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    .store-big {
+      display: block;
+      margin-top: 4px;
+      font-size: 19px;
+      line-height: 1;
+      text-align: left;
+    }
+
+    .app-store {
+      background: #fff;
+      color: #111;
+    }
+
+    .google-play {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .footer-links {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.68);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 680px) {
+      .card {
+        padding: 34px 22px;
+        border-radius: 26px;
+      }
+
+      .app-icon {
+        width: 116px;
+        height: 116px;
+        border-radius: 26px;
+        font-size: 44px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .feature {
+        text-align: center;
+      }
+
+      .store-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <a class="back-link" href="../../">←</a>
+
+      <div class="app-icon" aria-label="TripSphere app icon">TS</div>
+
+      <h1>TripSphere</h1>
+      <div class="tagline">Plan trips. Meet travelers. Share local tips.</div>
+      <p class="description">
+        TripSphere helps travelers create plans, discover city advice, save ideas, and connect with people going in the same direction.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-title">Plan</div>
+          <div class="feature-text">Create trips, organize destinations, and keep useful details close.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-title">Discover</div>
+          <div class="feature-text">Find practical tips and ideas for cities you want to visit.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-title">Connect</div>
+          <div class="feature-text">Meet travelers, message safely, and share travel moments.</div>
+        </div>
+      </div>
+
+      <div class="store-buttons">
+        <span class="store-button app-store" aria-disabled="true">
+          <span class="store-icon"></span>
+          <span>
+            <span class="store-small">Coming soon on the</span>
+            <span class="store-big">App Store</span>
+          </span>
+        </span>
+
+        <span class="store-button google-play" aria-disabled="true">
+          <span class="store-icon">▶</span>
+          <span>
+            <span class="store-small">Coming soon on</span>
+            <span class="store-big">Google Play</span>
+          </span>
+        </span>
+      </div>
+
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
