@@ -55,19 +55,55 @@
 
       overflow: hidden;
 
-      background-image:
+      background: #050506;
 
-        linear-gradient(90deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.38) 34%, rgba(0,0,0,0.08) 74%),
+    }
 
-        linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.10) 55%, rgba(0,0,0,0.48) 100%),
 
-        url("hero.jpg");
+
+    .hero::before {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 0;
+
+      background-image: url("hero.jpg");
 
       background-size: cover;
 
-      background-position: center;
+      background-position: 58% center;
 
       background-repeat: no-repeat;
+
+      filter: blur(2.5px) contrast(0.86) saturate(0.86) brightness(0.96);
+
+      transform: scale(1.015);
+
+    }
+
+
+
+    .hero::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 1;
+
+      pointer-events: none;
+
+      background:
+
+        linear-gradient(90deg, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.31) 38%, rgba(0,0,0,0.08) 76%),
+
+        linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.18) 100%);
 
     }
 
@@ -1239,15 +1275,17 @@
 
         min-height: 620px;
 
-        background-image:
+      }
 
-          linear-gradient(90deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.38) 34%, rgba(0,0,0,0.08) 74%),
 
-          linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.10) 55%, rgba(0,0,0,0.48) 100%),
 
-          url("hero1.jpg");
+      .hero::before {
 
-        background-position: center;
+        background-image: url("hero1.jpg");
+
+        background-position: 58% center;
+
+        filter: blur(2px) contrast(0.88) saturate(0.88) brightness(0.97);
 
       }
 
