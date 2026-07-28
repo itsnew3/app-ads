@@ -775,6 +775,10 @@
 
     .button {
 
+      appearance: none;
+
+      border: none;
+
       border-radius: 999px;
 
       padding: 15px 31px;
@@ -790,6 +794,8 @@
       cursor: pointer;
 
       white-space: nowrap;
+
+      font-family: inherit;
 
     }
 
@@ -1463,6 +1469,122 @@
 
 
 
+    .about-card {
+
+      position: relative;
+
+      width: min(640px, calc(100vw - 48px));
+
+      padding: 40px;
+
+      border-radius: 28px;
+
+      border: 1px solid rgba(255,255,255,0.13);
+
+      background: rgba(0,0,0,0.42);
+
+      backdrop-filter: blur(28px);
+
+      -webkit-backdrop-filter: blur(28px);
+
+      box-shadow: 0 40px 120px rgba(0,0,0,0.72);
+
+      color: #fff;
+
+    }
+
+
+
+    .about-title {
+
+      margin: 0;
+
+      padding-right: 42px;
+
+      font-size: 36px;
+
+      line-height: 1.05;
+
+      font-weight: 850;
+
+    }
+
+
+
+    .about-text {
+
+      margin: 18px 0 0;
+
+      color: rgba(255,255,255,0.74);
+
+      font-size: 16px;
+
+      line-height: 1.55;
+
+    }
+
+
+
+    .about-points {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 14px;
+
+      margin-top: 28px;
+
+      padding-top: 24px;
+
+      border-top: 1px solid rgba(255,255,255,0.08);
+
+    }
+
+
+
+    .about-point {
+
+      color: rgba(255,255,255,0.72);
+
+      font-size: 13px;
+
+      line-height: 1.4;
+
+    }
+
+
+
+    .about-point-title {
+
+      margin-bottom: 7px;
+
+      color: #fff;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+    }
+
+
+
+    .about-actions {
+
+      display: flex;
+
+      justify-content: center;
+
+      margin-top: 30px;
+
+      padding-top: 24px;
+
+      border-top: 1px solid rgba(255,255,255,0.08);
+
+    }
+
+
+
     .support-block {
 
       position: absolute;
@@ -1883,6 +2005,72 @@
 
       }
 
+
+
+      .about-card {
+
+        width: calc(100% - 28px);
+
+        max-height: calc(100dvh - 28px);
+
+        padding: 28px 22px 24px;
+
+        border-radius: 24px;
+
+        overflow-y: auto;
+
+      }
+
+
+
+      #aboutModal {
+
+        align-items: center;
+
+        padding: 14px;
+
+      }
+
+
+
+      .about-title {
+
+        font-size: 30px;
+
+      }
+
+
+
+      .about-text {
+
+        font-size: 14px;
+
+      }
+
+
+
+      .about-points {
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+        margin-top: 22px;
+
+        padding-top: 20px;
+
+      }
+
+
+
+      .about-actions {
+
+        margin-top: 22px;
+
+        padding-top: 20px;
+
+      }
+
     }
 
   </style>
@@ -2009,7 +2197,7 @@
 
         <div class="button button-red" id="exploreBtn" data-i18n="explore">Explore Apps</div>
 
-        <div class="button button-ghost" data-i18n="learn">Learn More</div>
+        <div class="button button-ghost" id="learnBtn" data-i18n="learn">Learn More</div>
 
       </div>
 
@@ -2261,6 +2449,66 @@
 
 
 
+  <div class="modal" id="aboutModal" aria-hidden="true">
+
+    <div class="about-card" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+
+      <button class="modal-close" id="aboutClose" aria-label="Close">×</button>
+
+
+
+      <h2 class="about-title" id="aboutTitle" data-i18n="aboutTitle">About Friendsphere.app</h2>
+
+      <p class="about-text" data-i18n="aboutText">
+
+        We create simple apps for real-life connection: games for friends, travel tools for meeting people, and small products that make it easier to start conversations, share plans, and spend time together.
+
+      </p>
+
+
+
+      <div class="about-points">
+
+        <div class="about-point">
+
+          <div class="about-point-title" data-i18n="aboutPoint1Title">Connect</div>
+
+          <div data-i18n="aboutPoint1Text">Meet people and start better conversations.</div>
+
+        </div>
+
+        <div class="about-point">
+
+          <div class="about-point-title" data-i18n="aboutPoint2Title">Play</div>
+
+          <div data-i18n="aboutPoint2Text">Make time with friends more honest and fun.</div>
+
+        </div>
+
+        <div class="about-point">
+
+          <div class="about-point-title" data-i18n="aboutPoint3Title">Travel</div>
+
+          <div data-i18n="aboutPoint3Text">Find companions and share useful tips.</div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="about-actions">
+
+        <button class="button button-red" id="aboutExploreBtn" type="button" data-i18n="explore">Explore Apps</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
   <script>
 
     const translations = {
@@ -2329,7 +2577,23 @@
 
         tripsphereFeature3Title: "Tips",
 
-        tripsphereFeature3Text: "Exchange practical advice."
+        tripsphereFeature3Text: "Exchange practical advice.",
+
+        aboutTitle: "About Friendsphere.app",
+
+        aboutText: "We create simple apps for real-life connection: games for friends, travel tools for meeting people, and small products that make it easier to start conversations, share plans, and spend time together.",
+
+        aboutPoint1Title: "Connect",
+
+        aboutPoint1Text: "Meet people and start better conversations.",
+
+        aboutPoint2Title: "Play",
+
+        aboutPoint2Text: "Make time with friends more honest and fun.",
+
+        aboutPoint3Title: "Travel",
+
+        aboutPoint3Text: "Find companions and share useful tips."
 
       },
 
@@ -2397,7 +2661,23 @@
 
         tripsphereFeature3Title: "Поради",
 
-        tripsphereFeature3Text: "Обмінюйтесь практичними порадами."
+        tripsphereFeature3Text: "Обмінюйтесь практичними порадами.",
+
+        aboutTitle: "Про Friendsphere.app",
+
+        aboutText: "Ми створюємо прості додатки для живого зв'язку: ігри для друзів, інструменти для пошуку людей у подорожах і невеликі продукти, які допомагають починати розмови, ділитися планами та проводити час разом.",
+
+        aboutPoint1Title: "Зв'язок",
+
+        aboutPoint1Text: "Знайомся з людьми та починай кращі розмови.",
+
+        aboutPoint2Title: "Гра",
+
+        aboutPoint2Text: "Роби час із друзями чеснішим і веселішим.",
+
+        aboutPoint3Title: "Подорожі",
+
+        aboutPoint3Text: "Знаходь попутників і ділись корисними порадами."
 
       }
 
@@ -2409,9 +2689,17 @@
 
     const exploreBtn = document.getElementById("exploreBtn");
 
+    const learnBtn = document.getElementById("learnBtn");
+
     const appsModal = document.getElementById("appsModal");
 
     const modalClose = document.getElementById("modalClose");
+
+    const aboutModal = document.getElementById("aboutModal");
+
+    const aboutClose = document.getElementById("aboutClose");
+
+    const aboutExploreBtn = document.getElementById("aboutExploreBtn");
 
     const appsMenuBtn = document.getElementById("appsMenuBtn");
 
@@ -2647,6 +2935,70 @@
 
 
 
+    function openAppsModal() {
+
+      aboutModal.classList.remove("is-open");
+
+      aboutModal.setAttribute("aria-hidden", "true");
+
+      appsModal.classList.add("is-open");
+
+      appsModal.setAttribute("aria-hidden", "false");
+
+      document.body.classList.add("modal-open");
+
+    }
+
+
+
+    function openAboutModal() {
+
+      appsModal.classList.remove("is-open");
+
+      appsModal.setAttribute("aria-hidden", "true");
+
+      aboutModal.classList.add("is-open");
+
+      aboutModal.setAttribute("aria-hidden", "false");
+
+      document.body.classList.add("modal-open");
+
+    }
+
+
+
+    function closeAboutModal() {
+
+      aboutModal.classList.remove("is-open");
+
+      aboutModal.setAttribute("aria-hidden", "true");
+
+      document.body.classList.remove("modal-open");
+
+    }
+
+
+
+    function closeOpenModal() {
+
+      if (appsModal.classList.contains("is-open")) {
+
+        closeAppsModal();
+
+      }
+
+
+
+      if (aboutModal.classList.contains("is-open")) {
+
+        closeAboutModal();
+
+      }
+
+    }
+
+
+
     appDots.forEach((dot, index) => {
 
       dot.addEventListener("click", () => {
@@ -2703,11 +3055,23 @@
 
     exploreBtn.addEventListener("click", () => {
 
-      appsModal.classList.add("is-open");
+      openAppsModal();
 
-      appsModal.setAttribute("aria-hidden", "false");
+    });
 
-      document.body.classList.add("modal-open");
+
+
+    learnBtn.addEventListener("click", () => {
+
+      openAboutModal();
+
+    });
+
+
+
+    aboutExploreBtn.addEventListener("click", () => {
+
+      openAppsModal();
 
     });
 
@@ -2733,9 +3097,35 @@
 
 
 
+    aboutClose.addEventListener("click", () => {
+
+      closeAboutModal();
+
+    });
+
+
+
+    aboutModal.addEventListener("click", (event) => {
+
+      if (event.target === aboutModal) {
+
+        closeAboutModal();
+
+      }
+
+    });
+
+
+
     document.addEventListener("keydown", (event) => {
 
-      if (!appsModal.classList.contains("is-open")) {
+      const appsOpen = appsModal.classList.contains("is-open");
+
+      const aboutOpen = aboutModal.classList.contains("is-open");
+
+
+
+      if (!appsOpen && !aboutOpen) {
 
         return;
 
@@ -2745,13 +3135,13 @@
 
       if (event.key === "Escape") {
 
-        closeAppsModal();
+        closeOpenModal();
 
       }
 
 
 
-      if (event.key === "ArrowLeft") {
+      if (appsOpen && event.key === "ArrowLeft") {
 
         setActiveApp(activeAppIndex - 1);
 
@@ -2759,7 +3149,7 @@
 
 
 
-      if (event.key === "ArrowRight") {
+      if (appsOpen && event.key === "ArrowRight") {
 
         setActiveApp(activeAppIndex + 1);
 
