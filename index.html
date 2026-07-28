@@ -855,9 +855,9 @@
 
       position: relative;
 
-      width: min(720px, 100%);
+      width: min(980px, 100%);
 
-      padding: 42px;
+      padding: 34px 42px 38px;
 
       border-radius: 28px;
 
@@ -870,6 +870,8 @@
       -webkit-backdrop-filter: blur(28px);
 
       box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7);
+
+      overflow: hidden;
 
     }
 
@@ -898,6 +900,280 @@
       font-size: 22px;
 
       cursor: pointer;
+
+    }
+
+
+
+    .library-header {
+
+      padding: 4px 56px 28px;
+
+      text-align: center;
+
+    }
+
+
+
+    .library-title {
+
+      margin: 0;
+
+      color: #fff;
+
+      font-size: 36px;
+
+      line-height: 1;
+
+      font-weight: 850;
+
+    }
+
+
+
+    .library-subtitle {
+
+      margin-top: 12px;
+
+      color: rgba(255,255,255,0.62);
+
+      font-size: 15px;
+
+      font-weight: 650;
+
+    }
+
+
+
+    .app-carousel {
+
+      position: relative;
+
+      height: 500px;
+
+    }
+
+
+
+    .app-slide {
+
+      position: absolute;
+
+      top: 0;
+
+      left: 50%;
+
+      width: min(620px, 100%);
+
+      height: 100%;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transform: translateX(-50%) scale(0.78);
+
+      filter: brightness(0.55) saturate(0.85);
+
+      transition: transform 0.34s ease, opacity 0.34s ease, filter 0.34s ease;
+
+    }
+
+
+
+    .app-slide.is-active {
+
+      z-index: 3;
+
+      opacity: 1;
+
+      pointer-events: auto;
+
+      transform: translateX(-50%) scale(1);
+
+      filter: none;
+
+    }
+
+
+
+    .app-slide.is-prev {
+
+      z-index: 2;
+
+      opacity: 0.42;
+
+      pointer-events: auto;
+
+      transform: translateX(calc(-50% - 540px)) scale(0.78);
+
+    }
+
+
+
+    .app-slide.is-next {
+
+      z-index: 2;
+
+      opacity: 0.42;
+
+      pointer-events: auto;
+
+      transform: translateX(calc(-50% + 540px)) scale(0.78);
+
+    }
+
+
+
+    .app-panel {
+
+      height: 100%;
+
+      padding: 34px;
+
+      border-radius: 26px;
+
+      border: 1px solid rgba(255,255,255,0.13);
+
+      background: rgba(0,0,0,0.30);
+
+      backdrop-filter: blur(28px);
+
+      -webkit-backdrop-filter: blur(28px);
+
+      box-shadow: 0 32px 92px rgba(0,0,0,0.62);
+
+      overflow: hidden;
+
+    }
+
+
+
+    .app-slide.is-active .app-panel {
+
+      background: rgba(0,0,0,0.50);
+
+    }
+
+
+
+    .app-slide:not(.is-active) .app-panel {
+
+      background: rgba(0,0,0,0.38);
+
+    }
+
+
+
+    .carousel-control {
+
+      position: absolute;
+
+      top: 50%;
+
+      z-index: 5;
+
+      width: 42px;
+
+      height: 42px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(255,255,255,0.16);
+
+      background: rgba(255,255,255,0.08);
+
+      color: #fff;
+
+      font-size: 28px;
+
+      line-height: 1;
+
+      cursor: pointer;
+
+      transform: translateY(-50%);
+
+      transition: background 0.16s ease, transform 0.16s ease, opacity 0.16s ease;
+
+    }
+
+
+
+    .carousel-control:hover {
+
+      background: rgba(255,255,255,0.14);
+
+      transform: translateY(-50%) scale(1.04);
+
+    }
+
+
+
+    .carousel-control:active {
+
+      opacity: 0.8;
+
+      transform: translateY(-50%) scale(0.96);
+
+    }
+
+
+
+    .carousel-control.prev {
+
+      left: 4px;
+
+    }
+
+
+
+    .carousel-control.next {
+
+      right: 4px;
+
+    }
+
+
+
+    .carousel-dots {
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      margin-top: 26px;
+
+    }
+
+
+
+    .carousel-dot {
+
+      width: 8px;
+
+      height: 8px;
+
+      border: 0;
+
+      border-radius: 999px;
+
+      background: rgba(255,255,255,0.45);
+
+      cursor: pointer;
+
+      transition: width 0.18s ease, background 0.18s ease, opacity 0.18s ease;
+
+    }
+
+
+
+    .carousel-dot.is-active {
+
+      width: 22px;
+
+      background: #f0141e;
 
     }
 
@@ -1167,6 +1443,32 @@
 
 
 
+    .store-button.is-disabled {
+
+      cursor: default;
+
+      color: rgba(255,255,255,0.68);
+
+      background: rgba(255,255,255,0.08);
+
+      border: 1px solid rgba(255,255,255,0.10);
+
+    }
+
+
+
+    .store-button.is-disabled:hover,
+
+    .store-button.is-disabled:active {
+
+      opacity: 1;
+
+      transform: none;
+
+    }
+
+
+
     .modal-footer {
 
       margin-top: 34px;
@@ -1363,7 +1665,7 @@
 
         align-items: flex-start;
 
-        padding: 18px 14px;
+        padding: 4px 14px;
 
         overflow-y: auto;
 
@@ -1383,15 +1685,109 @@
 
         width: 100%;
 
-        max-width: 420px;
+        max-width: 440px;
 
-        margin: 20px auto;
+        margin: 4px auto;
 
-        padding: 26px 18px 24px;
+        padding: 22px 14px 24px;
 
         border-radius: 24px;
 
         background: rgba(0,0,0,0.42);
+
+      }
+
+
+
+      .library-header {
+
+        padding: 6px 44px 22px;
+
+      }
+
+
+
+      .library-title {
+
+        font-size: 30px;
+
+      }
+
+
+
+      .library-subtitle {
+
+        font-size: 13px;
+
+      }
+
+
+
+      .app-carousel {
+
+        height: 650px;
+
+      }
+
+
+
+      .app-slide {
+
+        width: calc(100% - 38px);
+
+      }
+
+
+
+      .app-slide.is-prev {
+
+        transform: translateX(calc(-50% - 70vw)) scale(0.88);
+
+      }
+
+
+
+      .app-slide.is-next {
+
+        transform: translateX(calc(-50% + 70vw)) scale(0.88);
+
+      }
+
+
+
+      .app-panel {
+
+        padding: 24px 18px;
+
+        border-radius: 24px;
+
+      }
+
+
+
+      .carousel-control {
+
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 24px;
+
+      }
+
+
+
+      .carousel-control.prev {
+
+        left: -3px;
+
+      }
+
+
+
+      .carousel-control.next {
+
+        right: -3px;
 
       }
 
@@ -1471,13 +1867,13 @@
 
       .features {
 
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
 
-        gap: 12px;
+        gap: 10px;
 
         margin-top: 18px;
 
-        padding-bottom: 20px;
+        padding-bottom: 18px;
 
       }
 
@@ -1487,6 +1883,8 @@
 
         text-align: center;
 
+        font-size: 12px;
+
       }
 
 
@@ -1494,6 +1892,16 @@
       .feature-title {
 
         margin-top: 0;
+
+        font-size: 13px;
+
+      }
+
+
+
+      .feature-text {
+
+        font-size: 12px;
 
       }
 
@@ -1675,9 +2083,31 @@
 
   <div class="modal" id="appsModal" aria-hidden="true">
 
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="appModalTitle">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="appsLibraryTitle">
 
       <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+
+
+
+      <div class="library-header">
+
+        <h2 class="library-title" id="appsLibraryTitle" data-i18n="libraryTitle">Explore Apps</h2>
+
+        <div class="library-subtitle" data-i18n="librarySubtitle">Discover apps built for real connection.</div>
+
+      </div>
+
+
+
+      <div class="app-carousel" id="appsCarousel">
+
+        <button class="carousel-control prev" id="carouselPrev" type="button" aria-label="Previous app">‹</button>
+
+        <button class="carousel-control next" id="carouselNext" type="button" aria-label="Next app">›</button>
+
+        <article class="app-slide is-active" data-app-slide="0">
+
+          <div class="app-panel">
 
 
 
@@ -1777,6 +2207,110 @@
 
       </div>
 
+          </div>
+
+        </article>
+
+
+
+        <article class="app-slide is-next" data-app-slide="1">
+
+          <div class="app-panel">
+
+            <div class="modal-main">
+
+              <img class="app-icon-large" src="apps/tripsphere/app-icon.png" alt="Tripsphere app icon" />
+
+
+
+              <div>
+
+                <h3 class="modal-title">Tripsphere</h3>
+
+                <div class="modal-tagline" data-i18n="tripsphereTagline">Plan trips. Keep moments.</div>
+
+                <div class="modal-description" data-i18n="tripsphereDescription">
+
+                  A travel companion for saving trips, ideas, photos, and practical tips in one calm place.
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="features">
+
+              <div class="feature">
+
+                <div class="feature-title" data-i18n="tripsphereFeature1Title">Plan</div>
+
+                <div class="feature-text" data-i18n="tripsphereFeature1Text">Collect your route ideas.</div>
+
+              </div>
+
+              <div class="feature">
+
+                <div class="feature-title" data-i18n="tripsphereFeature2Title">Remember</div>
+
+                <div class="feature-text" data-i18n="tripsphereFeature2Text">Save photos and places.</div>
+
+              </div>
+
+              <div class="feature">
+
+                <div class="feature-title" data-i18n="tripsphereFeature3Title">Share</div>
+
+                <div class="feature-text" data-i18n="tripsphereFeature3Text">Keep useful tips close.</div>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="store-buttons">
+
+              <div class="store-button is-disabled" aria-disabled="true">
+
+                <span>
+
+                  <span class="store-small" data-i18n="comingSoonSmall">Coming soon</span>
+
+                  <span class="store-big">Tripsphere</span>
+
+                </span>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="modal-footer">
+
+              <a href="apps/tripsphere/privacy.html" class="privacy-link" data-i18n="privacy">Privacy Policy</a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+
+      <div class="carousel-dots" aria-label="Choose app">
+
+        <button class="carousel-dot is-active" type="button" data-app-dot="0" aria-label="Show Weird or Normal"></button>
+
+        <button class="carousel-dot" type="button" data-app-dot="1" aria-label="Show Tripsphere"></button>
+
+      </div>
+
     </div>
 
   </div>
@@ -1796,6 +2330,10 @@
         explore: "Explore Apps",
 
         learn: "Learn More",
+
+        libraryTitle: "Explore Apps",
+
+        librarySubtitle: "Discover apps built for real connection.",
 
         navApps: "Apps",
 
@@ -1817,6 +2355,8 @@
 
         getItOn: "Get it on",
 
+        comingSoonSmall: "Coming soon",
+
         privacy: "Privacy Policy",
 
         feature1Title: "Ask",
@@ -1829,7 +2369,23 @@
 
         feature3Title: "Have fun",
 
-        feature3Text: "Honest answers make it real."
+        feature3Text: "Honest answers make it real.",
+
+        tripsphereTagline: "Plan trips. Keep moments.",
+
+        tripsphereDescription: "A travel companion for saving trips, ideas, photos, and practical tips in one calm place.",
+
+        tripsphereFeature1Title: "Plan",
+
+        tripsphereFeature1Text: "Collect your route ideas.",
+
+        tripsphereFeature2Title: "Remember",
+
+        tripsphereFeature2Text: "Save photos and places.",
+
+        tripsphereFeature3Title: "Share",
+
+        tripsphereFeature3Text: "Keep useful tips close."
 
       },
 
@@ -1842,6 +2398,10 @@
         explore: "Переглянути додатки",
 
         learn: "Дізнатися більше",
+
+        libraryTitle: "Переглянути додатки",
+
+        librarySubtitle: "Додатки, створені для справжнього зв'язку.",
 
         navApps: "Додатки",
 
@@ -1863,6 +2423,8 @@
 
         getItOn: "Доступно в",
 
+        comingSoonSmall: "Незабаром",
+
         privacy: "Політика конфіденційності",
 
         feature1Title: "Запитуй",
@@ -1875,7 +2437,23 @@
 
         feature3Title: "Розважайся",
 
-        feature3Text: "Чесні відповіді — це справжнє."
+        feature3Text: "Чесні відповіді — це справжнє.",
+
+        tripsphereTagline: "Плануй подорожі. Зберігай моменти.",
+
+        tripsphereDescription: "Спокійний помічник для подорожей, ідей, фото та корисних порад в одному місці.",
+
+        tripsphereFeature1Title: "Плануй",
+
+        tripsphereFeature1Text: "Збирай ідеї маршрутів.",
+
+        tripsphereFeature2Title: "Пам'ятай",
+
+        tripsphereFeature2Text: "Зберігай фото та місця.",
+
+        tripsphereFeature3Title: "Ділись",
+
+        tripsphereFeature3Text: "Тримай корисні поради поруч."
 
       }
 
@@ -1910,6 +2488,20 @@
     const emailCopyTarget = document.getElementById("emailCopyTarget");
 
     const copyFeedback = document.getElementById("copyFeedback");
+
+    const appSlides = Array.from(document.querySelectorAll("[data-app-slide]"));
+
+    const appDots = Array.from(document.querySelectorAll("[data-app-dot]"));
+
+    const carouselPrev = document.getElementById("carouselPrev");
+
+    const carouselNext = document.getElementById("carouselNext");
+
+    const appsCarousel = document.getElementById("appsCarousel");
+
+    let activeAppIndex = 0;
+
+    let swipeStartX = 0;
 
     const dropdownMenus = [
 
@@ -2063,6 +2655,128 @@
 
 
 
+    function setActiveApp(index) {
+
+      activeAppIndex = (index + appSlides.length) % appSlides.length;
+
+
+
+      appSlides.forEach((slide, slideIndex) => {
+
+        slide.classList.remove("is-active", "is-prev", "is-next");
+
+
+
+        if (slideIndex === activeAppIndex) {
+
+          slide.classList.add("is-active");
+
+        } else if (slideIndex < activeAppIndex) {
+
+          slide.classList.add("is-prev");
+
+        } else {
+
+          slide.classList.add("is-next");
+
+        }
+
+      });
+
+
+
+      appDots.forEach((dot, dotIndex) => {
+
+        dot.classList.toggle("is-active", dotIndex === activeAppIndex);
+
+      });
+
+    }
+
+
+
+    function closeAppsModal() {
+
+      appsModal.classList.remove("is-open");
+
+      appsModal.setAttribute("aria-hidden", "true");
+
+      document.body.classList.remove("modal-open");
+
+    }
+
+
+
+    carouselPrev.addEventListener("click", () => {
+
+      setActiveApp(activeAppIndex - 1);
+
+    });
+
+
+
+    carouselNext.addEventListener("click", () => {
+
+      setActiveApp(activeAppIndex + 1);
+
+    });
+
+
+
+    appDots.forEach((dot, index) => {
+
+      dot.addEventListener("click", () => {
+
+        setActiveApp(index);
+
+      });
+
+    });
+
+
+
+    appSlides.forEach((slide, index) => {
+
+      slide.addEventListener("click", (event) => {
+
+        if (index !== activeAppIndex) {
+
+          event.preventDefault();
+
+          setActiveApp(index);
+
+        }
+
+      });
+
+    });
+
+
+
+    appsCarousel.addEventListener("pointerdown", (event) => {
+
+      swipeStartX = event.clientX;
+
+    });
+
+
+
+    appsCarousel.addEventListener("pointerup", (event) => {
+
+      const swipeDistance = event.clientX - swipeStartX;
+
+
+
+      if (Math.abs(swipeDistance) > 45) {
+
+        setActiveApp(activeAppIndex + (swipeDistance < 0 ? 1 : -1));
+
+      }
+
+    });
+
+
+
     exploreBtn.addEventListener("click", () => {
 
       appsModal.classList.add("is-open");
@@ -2077,11 +2791,7 @@
 
     modalClose.addEventListener("click", () => {
 
-      appsModal.classList.remove("is-open");
-
-      appsModal.setAttribute("aria-hidden", "true");
-
-      document.body.classList.remove("modal-open");
+      closeAppsModal();
 
     });
 
@@ -2091,15 +2801,51 @@
 
       if (event.target === appsModal) {
 
-        appsModal.classList.remove("is-open");
-
-        appsModal.setAttribute("aria-hidden", "true");
-
-        document.body.classList.remove("modal-open");
+        closeAppsModal();
 
       }
 
     });
+
+
+
+    document.addEventListener("keydown", (event) => {
+
+      if (!appsModal.classList.contains("is-open")) {
+
+        return;
+
+      }
+
+
+
+      if (event.key === "Escape") {
+
+        closeAppsModal();
+
+      }
+
+
+
+      if (event.key === "ArrowLeft") {
+
+        setActiveApp(activeAppIndex - 1);
+
+      }
+
+
+
+      if (event.key === "ArrowRight") {
+
+        setActiveApp(activeAppIndex + 1);
+
+      }
+
+    });
+
+
+
+    setActiveApp(0);
 
 
 
