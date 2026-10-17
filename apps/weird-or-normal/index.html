@@ -254,27 +254,27 @@
 
       <img class="app-icon" src="../../app-icon.png" alt="Weird or Normal app icon" />
 
-      <h1>Weird or Normal</h1>
-      <div class="tagline">Fun questions. Honest answers.</div>
-      <p class="description">
+      <h1 data-i18n="appName">Weird or Normal</h1>
+      <div class="tagline" data-i18n="tagline">Fun questions. Honest answers.</div>
+      <p class="description" data-i18n="description">
         A social question game where people vote, compare opinions, and discover what others think is weird or totally normal.
       </p>
 
       <div class="features">
         <div class="feature">
           
-          <div class="feature-title">Ask</div>
-          <div class="feature-text">Create your own questions and see what people think.</div>
+          <div class="feature-title" data-i18n="feature1Title">Ask</div>
+          <div class="feature-text" data-i18n="feature1Text">Create your own questions and see what people think.</div>
         </div>
         <div class="feature">
           
-          <div class="feature-title">Vote</div>
-          <div class="feature-text">Share your opinion and compare it with the community.</div>
+          <div class="feature-title" data-i18n="feature2Title">Vote</div>
+          <div class="feature-text" data-i18n="feature2Text">Share your opinion and compare it with the community.</div>
         </div>
         <div class="feature">
           
-          <div class="feature-title">Discuss</div>
-          <div class="feature-text">Read comments and join real conversations.</div>
+          <div class="feature-title" data-i18n="feature3Title">Discuss</div>
+          <div class="feature-text" data-i18n="feature3Text">Read comments and join real conversations.</div>
         </div>
       </div>
 
@@ -282,7 +282,7 @@
         <a class="store-button app-store" href="https://apps.apple.com/app/id6757619381" target="_blank">
           <span class="store-icon"></span>
           <span>
-            <span class="store-small">Download on the</span>
+            <span class="store-small" data-i18n="downloadOn">Download on the</span>
             <span class="store-big">App Store</span>
           </span>
         </a>
@@ -290,16 +290,58 @@
         <a class="store-button google-play" href="https://play.google.com/store/apps/details?id=app.friendsphere.weirdornormal" target="_blank">
           <span class="store-icon">▶</span>
           <span>
-            <span class="store-small">Get it on</span>
+            <span class="store-small" data-i18n="getItOn">Get it on</span>
             <span class="store-big">Google Play</span>
           </span>
         </a>
       </div>
 
       <div class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="privacy.html" data-i18n="privacy">Privacy Policy</a>
       </div>
     </section>
   </main>
+  <script>
+    const translations = {
+      en: {
+        title: 'Weird or Normal',
+        appName: 'Weird or Normal',
+        tagline: 'Fun questions. Honest answers.',
+        description: 'A social question game where people vote, compare opinions, and discover what others think is weird or totally normal.',
+        feature1Title: 'Ask',
+        feature1Text: 'Create your own questions and see what people think.',
+        feature2Title: 'Vote',
+        feature2Text: 'Share your opinion and compare it with the community.',
+        feature3Title: 'Discuss',
+        feature3Text: 'Read comments and join real conversations.',
+        downloadOn: 'Download on the',
+        getItOn: 'Get it on',
+        privacy: 'Privacy Policy',
+      },
+      uk: {
+        title: 'Стрьом чи норм?',
+        appName: 'Стрьом чи норм?',
+        tagline: 'Живі питання. Чесні відповіді.',
+        description: 'Гра з питаннями, де люди голосують, порівнюють думки та дізнаються, що інші вважають стрьомним або цілком нормальним.',
+        feature1Title: 'Запитуй',
+        feature1Text: 'Створюй власні питання та дізнавайся, що думають інші.',
+        feature2Title: 'Голосуй',
+        feature2Text: 'Ділись думкою та порівнюй її з думкою спільноти.',
+        feature3Title: 'Обговорюй',
+        feature3Text: 'Читай коментарі та долучайся до справжніх розмов.',
+        downloadOn: 'Завантажити в',
+        getItOn: 'Доступно в',
+        privacy: 'Політика конфіденційності',
+      },
+    };
+
+    const language = localStorage.getItem('friendsphere_language') || 'en';
+    const dictionary = translations[language] || translations.en;
+    document.documentElement.lang = translations[language] ? language : 'en';
+    document.title = dictionary.title;
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+      element.textContent = dictionary[element.dataset.i18n] || element.textContent;
+    });
+  </script>
 </body>
 </html>

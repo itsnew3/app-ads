@@ -238,24 +238,24 @@
 
       <img class="app-icon" src="app-icon.png" alt="Tripsphere app icon" />
 
-      <h1>Tripsphere</h1>
-      <div class="tagline">Find travel companions. Go together. Share local tips.</div>
-      <p class="description">
+      <h1 data-i18n="appName">Tripsphere</h1>
+      <div class="tagline" data-i18n="tagline">Find travel companions. Go together. Share local tips.</div>
+      <p class="description" data-i18n="description">
         Tripsphere helps travelers meet people going in the same direction, join shared trips, and exchange practical advice along the way.
       </p>
 
       <div class="features">
         <div class="feature">
-          <div class="feature-title">Match</div>
-          <div class="feature-text">Find people who want to travel in the same direction.</div>
+          <div class="feature-title" data-i18n="feature1Title">Match</div>
+          <div class="feature-text" data-i18n="feature1Text">Find people who want to travel in the same direction.</div>
         </div>
         <div class="feature">
-          <div class="feature-title">Go together</div>
-          <div class="feature-text">Join shared trips and start routes with compatible travelers.</div>
+          <div class="feature-title" data-i18n="feature2Title">Go together</div>
+          <div class="feature-text" data-i18n="feature2Text">Join shared trips and start routes with compatible travelers.</div>
         </div>
         <div class="feature">
-          <div class="feature-title">Share tips</div>
-          <div class="feature-text">Exchange practical advice before and during the journey.</div>
+          <div class="feature-title" data-i18n="feature3Title">Share tips</div>
+          <div class="feature-text" data-i18n="feature3Text">Exchange practical advice before and during the journey.</div>
         </div>
       </div>
 
@@ -263,7 +263,7 @@
         <a class="store-button app-store" href="https://apps.apple.com/app/id6748157215" target="_blank" rel="noopener noreferrer">
           <span class="store-icon"></span>
           <span>
-            <span class="store-small">Download on the</span>
+            <span class="store-small" data-i18n="downloadOn">Download on the</span>
             <span class="store-big">App Store</span>
           </span>
         </a>
@@ -271,16 +271,58 @@
         <a class="store-button google-play" href="https://play.google.com/store/apps/details?id=app.friendsphere.tripsphere" target="_blank" rel="noopener noreferrer">
           <span class="store-icon">▶</span>
           <span>
-            <span class="store-small">Get it on</span>
+            <span class="store-small" data-i18n="getItOn">Get it on</span>
             <span class="store-big">Google Play</span>
           </span>
         </a>
       </div>
 
       <div class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="privacy.html" data-i18n="privacy">Privacy Policy</a>
       </div>
     </section>
   </main>
+  <script>
+    const translations = {
+      en: {
+        title: 'Tripsphere',
+        appName: 'Tripsphere',
+        tagline: 'Find travel companions. Go together. Share local tips.',
+        description: 'Tripsphere helps travelers meet people going in the same direction, join shared trips, and exchange practical advice along the way.',
+        feature1Title: 'Match',
+        feature1Text: 'Find people who want to travel in the same direction.',
+        feature2Title: 'Go together',
+        feature2Text: 'Join shared trips and start routes with compatible travelers.',
+        feature3Title: 'Share tips',
+        feature3Text: 'Exchange practical advice before and during the journey.',
+        downloadOn: 'Download on the',
+        getItOn: 'Get it on',
+        privacy: 'Privacy Policy',
+      },
+      uk: {
+        title: 'Tripsphere',
+        appName: 'Tripsphere',
+        tagline: 'Знаходь попутників. Подорожуйте разом. Ділись місцевими порадами.',
+        description: 'Tripsphere допомагає мандрівникам знайомитися з людьми, які прямують у тому ж напрямку, приєднуватися до спільних поїздок і ділитися практичними порадами.',
+        feature1Title: 'Знайомся',
+        feature1Text: 'Знаходь людей, які хочуть подорожувати в тому ж напрямку.',
+        feature2Title: 'Подорожуй разом',
+        feature2Text: 'Приєднуйся до спільних поїздок і вирушай у маршрути з близькими за духом мандрівниками.',
+        feature3Title: 'Ділись порадами',
+        feature3Text: 'Обмінюйся практичними порадами до та під час подорожі.',
+        downloadOn: 'Завантажити в',
+        getItOn: 'Доступно в',
+        privacy: 'Політика конфіденційності',
+      },
+    };
+
+    const language = localStorage.getItem('friendsphere_language') || 'en';
+    const dictionary = translations[language] || translations.en;
+    document.documentElement.lang = translations[language] ? language : 'en';
+    document.title = dictionary.title;
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+      element.textContent = dictionary[element.dataset.i18n] || element.textContent;
+    });
+  </script>
 </body>
 </html>
