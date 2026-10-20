@@ -301,6 +301,8 @@
       </div>
     </section>
   </main>
+  <script src="../../i18n.js"></script>
+
   <script>
     const translations = {
       en: {
@@ -334,6 +336,8 @@
         privacy: 'Політика конфіденційності',
       },
     };
+
+    Object.assign(translations, window.FRIENDSPHERE_TRANSLATIONS.weirdOrNormal);
 
     const language = localStorage.getItem('friendsphere_language') || 'en';
     const dictionary = translations[language] || translations.en;

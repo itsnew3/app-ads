@@ -2191,6 +2191,12 @@
 
           <option value="uk">UA</option>
 
+          <option value="de">DE</option>
+
+          <option value="es">ES</option>
+
+          <option value="ja">JA</option>
+
         </select>
 
       </div>
@@ -2541,6 +2547,8 @@
 
 
 
+  <script src="i18n.js"></script>
+
   <script>
 
     const translations = {
@@ -2716,6 +2724,8 @@
     };
 
 
+
+    Object.assign(translations, window.FRIENDSPHERE_TRANSLATIONS.root);
 
     const languageSelect = document.getElementById("languageSelect");
 
