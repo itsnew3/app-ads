@@ -2787,13 +2787,17 @@
 
 
 
-    function setLanguage(lang) {
+    function setLanguage(lang, savePreference = true) {
 
       const dict = translations[lang] || translations.en;
 
       document.documentElement.lang = lang;
 
-      localStorage.setItem("friendsphere_language", lang);
+      if (savePreference) {
+
+        localStorage.setItem("friendsphere_language", lang);
+
+      }
 
 
 
@@ -3205,7 +3209,7 @@
 
 
 
-    setLanguage(localStorage.getItem("friendsphere_language") || "en");
+    setLanguage(window.FRIENDSPHERE_LANGUAGE.resolve(Object.keys(translations)), false);
 
   </script>
 

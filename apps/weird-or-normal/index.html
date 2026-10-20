@@ -339,7 +339,7 @@
 
     Object.assign(translations, window.FRIENDSPHERE_TRANSLATIONS.weirdOrNormal);
 
-    const language = localStorage.getItem('friendsphere_language') || 'en';
+    const language = window.FRIENDSPHERE_LANGUAGE.resolve(Object.keys(translations));
     const dictionary = translations[language] || translations.en;
     document.documentElement.lang = translations[language] ? language : 'en';
     document.title = dictionary.title;

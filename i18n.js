@@ -1,3 +1,27 @@
+window.FRIENDSPHERE_LANGUAGE = {
+  resolve(supportedLanguages) {
+    const savedLanguage = localStorage.getItem('friendsphere_language');
+
+    if (savedLanguage && supportedLanguages.includes(savedLanguage)) {
+      return savedLanguage;
+    }
+
+    const browserLanguages = navigator.languages?.length
+      ? navigator.languages
+      : [navigator.language];
+
+    for (const locale of browserLanguages) {
+      const language = locale.toLowerCase().split('-')[0];
+
+      if (supportedLanguages.includes(language)) {
+        return language;
+      }
+    }
+
+    return 'en';
+  },
+};
+
 window.FRIENDSPHERE_TRANSLATIONS = {
   root: {
     de: {
