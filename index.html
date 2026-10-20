@@ -395,6 +395,20 @@
 
     }
 
+    .support-icon {
+
+      width: 18px;
+
+      height: 18px;
+
+      object-fit: contain;
+
+      flex-shrink: 0;
+
+      opacity: 0.95;
+
+    }
+
 
 
     .support-email-row {
@@ -2305,13 +2319,13 @@
 
             <div class="contact-divider"></div>
 
-            <div class="support-email-row">
+            <a class="social-link" href="mailto:friendsphere.app@icloud.com">
 
-              <span class="support-email-copy" id="emailCopyTarget">friendsphere.app@icloud.com</span>
+              <img class="support-icon" src="support.svg" alt="" />
 
-              <span class="copy-feedback" id="copyFeedback"></span>
+              <span data-i18n="navSupport">Support</span>
 
-            </div>
+            </a>
 
           </div>
 
@@ -2679,6 +2693,8 @@
 
         navContact: "Contact",
 
+        navSupport: "Support",
+
         dropdownAppName: "Weird or Normal",
 
         modalAppName: "Weird or Normal",
@@ -2756,6 +2772,8 @@
         navSocials: "Соцмережі",
 
         navContact: "Зв'язок",
+
+        navSupport: "Підтримка",
 
         dropdownAppName: "Стрьом чи норм?",
 
@@ -2842,10 +2860,6 @@
     const contactMenuBtn = document.getElementById("contactMenuBtn");
 
     const contactDropdown = document.getElementById("contactDropdown");
-
-    const emailCopyTarget = document.getElementById("emailCopyTarget");
-
-    const copyFeedback = document.getElementById("copyFeedback");
 
     const appSlides = Array.from(document.querySelectorAll("[data-app-slide]"));
 
@@ -2956,56 +2970,6 @@
         closeDropdowns();
 
       }
-
-    });
-
-
-
-    function copySupportEmail() {
-
-      const email = "friendsphere.app@icloud.com";
-
-
-
-      if (navigator.clipboard && window.isSecureContext) {
-
-        navigator.clipboard.writeText(email);
-
-      } else {
-
-        const tempInput = document.createElement("input");
-
-        tempInput.value = email;
-
-        document.body.appendChild(tempInput);
-
-        tempInput.select();
-
-        document.execCommand("copy");
-
-        document.body.removeChild(tempInput);
-
-      }
-
-
-
-      copyFeedback.classList.add("show");
-
-      setTimeout(() => {
-
-        copyFeedback.classList.remove("show");
-
-      }, 650);
-
-    }
-
-
-
-    emailCopyTarget.addEventListener("click", (event) => {
-
-      event.stopPropagation();
-
-      copySupportEmail();
 
     });
 
