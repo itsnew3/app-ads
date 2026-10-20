@@ -835,6 +835,128 @@
 
     }
 
+    .about-section {
+
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 128px 62px 136px;
+
+      background: #0b0b0d;
+
+    }
+
+    .about-section::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+
+      left: 62px;
+
+      width: 72px;
+
+      height: 2px;
+
+      background: #f0141e;
+
+    }
+
+    .about-inner {
+
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.25fr);
+
+      gap: clamp(48px, 9vw, 150px);
+
+      max-width: 1180px;
+
+      margin: 0 auto;
+
+    }
+
+    .about-kicker {
+
+      color: #f14b52;
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      letter-spacing: 0.08em;
+
+      text-transform: uppercase;
+
+    }
+
+    .about-section-title {
+
+      max-width: 380px;
+
+      margin: 18px 0 0;
+
+      font-size: clamp(34px, 4vw, 56px);
+
+      line-height: 1.05;
+
+      letter-spacing: -0.035em;
+
+    }
+
+    .about-copy {
+
+      max-width: 640px;
+
+      color: rgba(255,255,255,0.78);
+
+      font-size: clamp(17px, 1.55vw, 21px);
+
+      line-height: 1.55;
+
+    }
+
+    .about-copy p {
+
+      margin: 0;
+
+    }
+
+    .about-copy p + p {
+
+      margin-top: 22px;
+
+    }
+
+    .about-copy .about-thanks {
+
+      color: #fff;
+
+      font-weight: 650;
+
+    }
+
+    .contact-dropdown {
+
+      width: 235px;
+
+    }
+
+    .contact-divider {
+
+      height: 1px;
+
+      margin: 4px 8px;
+
+      background: rgba(255,255,255,0.12);
+
+    }
+
 
 
     .modal {
@@ -1727,6 +1849,38 @@
 
       }
 
+      .about-section {
+
+        padding: 88px 28px 96px;
+
+      }
+
+      .about-section::before {
+
+        left: 28px;
+
+      }
+
+      .about-inner {
+
+        grid-template-columns: 1fr;
+
+        gap: 34px;
+
+      }
+
+      .about-section-title {
+
+        max-width: 340px;
+
+      }
+
+      .about-copy {
+
+        font-size: 17px;
+
+      }
+
 
 
       .button {
@@ -2037,14 +2191,6 @@
 
 
 
-      #aboutModal {
-
-        align-items: center;
-
-        padding: 14px;
-
-      }
-
 
 
       .about-title {
@@ -2157,15 +2303,7 @@
 
             </a>
 
-          </div>
-
-        </div>
-
-        <div class="nav-item">
-
-          <button class="nav-button" id="supportMenuBtn" type="button" data-i18n="navSupport">Support</button>
-
-          <div class="support-dropdown" id="supportDropdown">
+            <div class="contact-divider"></div>
 
             <div class="support-email-row">
 
@@ -2230,6 +2368,34 @@
       <div class="support-email">Friendsphere.app</div>
 
       <div class="year">© 2026</div>
+
+    </div>
+
+  </section>
+
+  <section class="about-section" id="about">
+
+    <div class="about-inner">
+
+      <div>
+
+        <div class="about-kicker" data-i18n="aboutKicker">Why Friendsphere</div>
+
+        <h2 class="about-section-title" data-i18n="aboutTitle">About Friendsphere.app</h2>
+
+      </div>
+
+      <div class="about-copy">
+
+        <p data-i18n="aboutText">Social networks and apps were originally created to help people find one another. Over time, much has changed: more and more, their main goal has become keeping us in front of our phones and computers for as long as possible.</p>
+
+        <p data-i18n="aboutParagraph2">Friendsphere.app came from a different idea: creating apps that help people find others who share their interests - not only for chatting, but for real meetings, shared ideas, trips, and experiences.</p>
+
+        <p data-i18n="aboutParagraph3">The world is moving further into virtual spaces. I want to leave more room in it for real life.</p>
+
+        <p class="about-thanks" data-i18n="aboutThanks">Thank you for supporting the project. It truly matters to me.</p>
+
+      </div>
 
     </div>
 
@@ -2487,66 +2653,6 @@
 
 
 
-  <div class="modal" id="aboutModal" aria-hidden="true">
-
-    <div class="about-card" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
-
-      <button class="modal-close" id="aboutClose" aria-label="Close">×</button>
-
-
-
-      <h2 class="about-title" id="aboutTitle" data-i18n="aboutTitle">About Friendsphere.app</h2>
-
-      <p class="about-text" data-i18n="aboutText">
-
-        We create simple apps for real-life connection: games for friends, travel tools for meeting people, and small products that make it easier to start conversations, share plans, and spend time together.
-
-      </p>
-
-
-
-      <div class="about-points">
-
-        <div class="about-point">
-
-          <div class="about-point-title" data-i18n="aboutPoint1Title">Connect</div>
-
-          <div data-i18n="aboutPoint1Text">Meet people and start better conversations.</div>
-
-        </div>
-
-        <div class="about-point">
-
-          <div class="about-point-title" data-i18n="aboutPoint2Title">Play</div>
-
-          <div data-i18n="aboutPoint2Text">Make time with friends more honest and fun.</div>
-
-        </div>
-
-        <div class="about-point">
-
-          <div class="about-point-title" data-i18n="aboutPoint3Title">Travel</div>
-
-          <div data-i18n="aboutPoint3Text">Find companions and share useful tips.</div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="about-actions">
-
-        <button class="button button-red" id="aboutExploreBtn" type="button" data-i18n="explore">Explore Apps</button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
   <script src="i18n.js"></script>
 
   <script>
@@ -2572,8 +2678,6 @@
         navSocials: "Socials",
 
         navContact: "Contact",
-
-        navSupport: "Support",
 
         dropdownAppName: "Weird or Normal",
 
@@ -2621,19 +2725,15 @@
 
         aboutTitle: "About Friendsphere.app",
 
-        aboutText: "We create simple apps for real-life connection: games for friends, travel tools for meeting people, and small products that make it easier to start conversations, share plans, and spend time together.",
+        aboutKicker: "Why Friendsphere",
 
-        aboutPoint1Title: "Connect",
+        aboutText: "Social networks and apps were originally created to help people find one another. Over time, much has changed: more and more, their main goal has become keeping us in front of our phones and computers for as long as possible.",
 
-        aboutPoint1Text: "Meet people and start better conversations.",
+        aboutParagraph2: "Friendsphere.app came from a different idea: creating apps that help people find others who share their interests - not only for chatting, but for real meetings, shared ideas, trips, and experiences.",
 
-        aboutPoint2Title: "Play",
+        aboutParagraph3: "The world is moving further into virtual spaces. I want to leave more room in it for real life.",
 
-        aboutPoint2Text: "Make time with friends more honest and fun.",
-
-        aboutPoint3Title: "Travel",
-
-        aboutPoint3Text: "Find companions and share useful tips."
+        aboutThanks: "Thank you for supporting the project. It truly matters to me."
 
       },
 
@@ -2655,9 +2755,7 @@
 
         navSocials: "Соцмережі",
 
-        navContact: "Контакт",
-
-        navSupport: "Підтримка",
+        navContact: "Зв'язок",
 
         dropdownAppName: "Стрьом чи норм?",
 
@@ -2705,19 +2803,15 @@
 
         aboutTitle: "Про Friendsphere.app",
 
-        aboutText: "Ми створюємо прості додатки для живого зв'язку: ігри для друзів, інструменти для пошуку людей у подорожах і невеликі продукти, які допомагають починати розмови, ділитися планами та проводити час разом.",
+        aboutKicker: "Чому Friendsphere",
 
-        aboutPoint1Title: "Зв'язок",
+        aboutText: "Спочатку соціальні мережі та додатки створювалися, щоб допомагати людям знаходити одне одного. Згодом багато що змінилося: дедалі частіше їхня головна мета - утримувати нас біля екранів телефонів і комп'ютерів якомога довше.",
 
-        aboutPoint1Text: "Знайомся з людьми та починай кращі розмови.",
+        aboutParagraph2: "Friendsphere.app з'явився з іншої ідеї: створювати додатки, які допомагають людям знаходити близьких за інтересами - не лише для листування, а й для справжніх зустрічей, спільних ідей, подорожей і вражень.",
 
-        aboutPoint2Title: "Гра",
+        aboutParagraph3: "Світ дедалі більше переходить у віртуальний простір. А мені хочеться залишати в ньому більше місця для реального життя.",
 
-        aboutPoint2Text: "Роби час із друзями чеснішим і веселішим.",
-
-        aboutPoint3Title: "Подорожі",
-
-        aboutPoint3Text: "Знаходь попутників і ділись корисними порадами."
+        aboutThanks: "Дякую за підтримку проєкту. Для мене це справді важливо."
 
       }
 
@@ -2737,19 +2831,9 @@
 
     const modalClose = document.getElementById("modalClose");
 
-    const aboutModal = document.getElementById("aboutModal");
-
-    const aboutClose = document.getElementById("aboutClose");
-
-    const aboutExploreBtn = document.getElementById("aboutExploreBtn");
-
     const appsMenuBtn = document.getElementById("appsMenuBtn");
 
     const appsDropdown = document.getElementById("appsDropdown");
-
-    const supportMenuBtn = document.getElementById("supportMenuBtn");
-
-    const supportDropdown = document.getElementById("supportDropdown");
 
     const socialsMenuBtn = document.getElementById("socialsMenuBtn");
 
@@ -2779,9 +2863,7 @@
 
       { button: socialsMenuBtn, dropdown: socialsDropdown },
 
-      { button: contactMenuBtn, dropdown: contactDropdown },
-
-      { button: supportMenuBtn, dropdown: supportDropdown }
+      { button: contactMenuBtn, dropdown: contactDropdown }
 
     ];
 
@@ -2983,43 +3065,11 @@
 
     function openAppsModal() {
 
-      aboutModal.classList.remove("is-open");
-
-      aboutModal.setAttribute("aria-hidden", "true");
-
       appsModal.classList.add("is-open");
 
       appsModal.setAttribute("aria-hidden", "false");
 
       document.body.classList.add("modal-open");
-
-    }
-
-
-
-    function openAboutModal() {
-
-      appsModal.classList.remove("is-open");
-
-      appsModal.setAttribute("aria-hidden", "true");
-
-      aboutModal.classList.add("is-open");
-
-      aboutModal.setAttribute("aria-hidden", "false");
-
-      document.body.classList.add("modal-open");
-
-    }
-
-
-
-    function closeAboutModal() {
-
-      aboutModal.classList.remove("is-open");
-
-      aboutModal.setAttribute("aria-hidden", "true");
-
-      document.body.classList.remove("modal-open");
 
     }
 
@@ -3034,12 +3084,6 @@
       }
 
 
-
-      if (aboutModal.classList.contains("is-open")) {
-
-        closeAboutModal();
-
-      }
 
     }
 
@@ -3109,15 +3153,7 @@
 
     learnBtn.addEventListener("click", () => {
 
-      openAboutModal();
-
-    });
-
-
-
-    aboutExploreBtn.addEventListener("click", () => {
-
-      openAppsModal();
+      document.getElementById("about").scrollIntoView({ behavior: "smooth" });
 
     });
 
@@ -3143,35 +3179,11 @@
 
 
 
-    aboutClose.addEventListener("click", () => {
-
-      closeAboutModal();
-
-    });
-
-
-
-    aboutModal.addEventListener("click", (event) => {
-
-      if (event.target === aboutModal) {
-
-        closeAboutModal();
-
-      }
-
-    });
-
-
-
     document.addEventListener("keydown", (event) => {
 
       const appsOpen = appsModal.classList.contains("is-open");
 
-      const aboutOpen = aboutModal.classList.contains("is-open");
-
-
-
-      if (!appsOpen && !aboutOpen) {
+      if (!appsOpen) {
 
         return;
 

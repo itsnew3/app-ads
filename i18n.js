@@ -34,7 +34,6 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       navApps: 'Apps',
       navSocials: 'Socials',
       navContact: 'Kontakt',
-      navSupport: 'Support',
       dropdownAppName: 'Weird oder Normal',
       modalAppName: 'Weird oder Normal',
       modalTagline: 'Lustige Fragen. Ehrliche Antworten.',
@@ -58,13 +57,11 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       tripsphereFeature3Title: 'Tipps',
       tripsphereFeature3Text: 'Tauscht praktische Tipps aus.',
       aboutTitle: 'Über Friendsphere.app',
-      aboutText: 'Wir entwickeln einfache Apps für echte Verbindungen: Spiele für Freunde, Reise-Tools zum Kennenlernen und kleine Produkte, die es leichter machen, Gespräche zu beginnen, Pläne zu teilen und Zeit zusammen zu verbringen.',
-      aboutPoint1Title: 'Verbinden',
-      aboutPoint1Text: 'Triff Menschen und beginne bessere Gespräche.',
-      aboutPoint2Title: 'Spielen',
-      aboutPoint2Text: 'Verbringe ehrlichere und schönere Zeit mit Freunden.',
-      aboutPoint3Title: 'Reisen',
-      aboutPoint3Text: 'Finde Reisebegleiter und teile hilfreiche Tipps.'
+      aboutKicker: 'Warum Friendsphere',
+      aboutText: 'Soziale Netzwerke und Apps wurden ursprünglich entwickelt, damit Menschen einander finden können. Mit der Zeit hat sich vieles verändert: Immer öfter besteht ihr Hauptziel darin, uns möglichst lange vor den Bildschirmen unserer Smartphones und Computer zu halten.',
+      aboutParagraph2: 'Friendsphere.app entstand aus einer anderen Idee: Apps zu entwickeln, die Menschen mit ähnlichen Interessen zusammenbringen - nicht nur zum Schreiben, sondern für echte Begegnungen, gemeinsame Ideen, Reisen und Erlebnisse.',
+      aboutParagraph3: 'Die Welt verlagert sich immer mehr ins Virtuelle. Ich möchte darin mehr Raum für das echte Leben lassen.',
+      aboutThanks: 'Danke, dass du das Projekt unterstützt. Das bedeutet mir wirklich viel.'
     },
     es: {
       brand: 'Friendsphere.app',
@@ -76,7 +73,6 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       navApps: 'Apps',
       navSocials: 'Redes',
       navContact: 'Contacto',
-      navSupport: 'Soporte',
       dropdownAppName: 'Raro o normal',
       modalAppName: 'Raro o normal',
       modalTagline: 'Preguntas divertidas. Respuestas sinceras.',
@@ -100,13 +96,11 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       tripsphereFeature3Title: 'Consejos',
       tripsphereFeature3Text: 'Intercambien consejos prácticos.',
       aboutTitle: 'Sobre Friendsphere.app',
-      aboutText: 'Creamos apps sencillas para conectar de verdad: juegos para amigos, herramientas de viaje para conocer gente y pequeños productos que facilitan iniciar conversaciones, compartir planes y pasar tiempo juntos.',
-      aboutPoint1Title: 'Conecta',
-      aboutPoint1Text: 'Conoce gente e inicia mejores conversaciones.',
-      aboutPoint2Title: 'Juega',
-      aboutPoint2Text: 'Haz que el tiempo con amigos sea más divertido y sincero.',
-      aboutPoint3Title: 'Viaja',
-      aboutPoint3Text: 'Encuentra compañeros y comparte consejos útiles.'
+      aboutKicker: 'Por qué Friendsphere',
+      aboutText: 'Las redes sociales y las apps se crearon originalmente para ayudar a las personas a encontrarse. Con el tiempo, muchas cosas han cambiado: cada vez más, su objetivo principal es mantenernos frente a las pantallas de nuestros teléfonos y ordenadores el mayor tiempo posible.',
+      aboutParagraph2: 'Friendsphere.app nació de una idea diferente: crear apps que ayuden a las personas a encontrar a otras con intereses afines, no solo para conversar, sino para encuentros reales, ideas compartidas, viajes y experiencias.',
+      aboutParagraph3: 'El mundo se traslada cada vez más a lo virtual. Quiero dejar en él más espacio para la vida real.',
+      aboutThanks: 'Gracias por apoyar el proyecto. Para mí significa mucho.'
     },
     ja: {
       brand: 'Friendsphere.app',
@@ -117,8 +111,7 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       librarySubtitle: '本当のつながりのためにつくられたアプリを見つけよう。',
       navApps: 'アプリ',
       navSocials: 'ソーシャル',
-      navContact: '連絡先',
-      navSupport: 'サポート',
+      navContact: 'お問い合わせ',
       dropdownAppName: '変？それとも普通？',
       modalAppName: '変？それとも普通？',
       modalTagline: '楽しい質問。正直な答え。',
@@ -142,13 +135,11 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       tripsphereFeature3Title: 'ヒント',
       tripsphereFeature3Text: '役立つ旅のヒントを交換しよう。',
       aboutTitle: 'Friendsphere.app について',
-      aboutText: '私たちは、本当のつながりのためのシンプルなアプリをつくっています。友だちのためのゲーム、旅先で人と出会うためのツール、会話を始めたり予定を共有したり一緒に時間を過ごしたりしやすくする小さなプロダクトです。',
-      aboutPoint1Title: 'つながる',
-      aboutPoint1Text: '人と出会い、もっとよい会話を始めよう。',
-      aboutPoint2Title: '遊ぶ',
-      aboutPoint2Text: '友だちとの時間を、もっと楽しく正直なものに。',
-      aboutPoint3Title: '旅する',
-      aboutPoint3Text: '旅仲間を見つけて、役立つヒントを共有しよう。'
+      aboutKicker: 'Friendsphereの想い',
+      aboutText: 'ソーシャルネットワークやアプリは、もともと人と人が出会うためにつくられました。時がたつにつれ、多くのことが変わりました。今では、スマートフォンやコンピューターの画面の前にできるだけ長く留めることが主な目的になりつつあります。',
+      aboutParagraph2: 'Friendsphere.appは、別の考えから生まれました。同じ興味を持つ人と出会えるアプリをつくること。チャットのためだけでなく、実際に会うこと、アイデアを共有すること、旅や体験のために。',
+      aboutParagraph3: '世界はますますバーチャルな空間へ向かっています。その中に、現実の暮らしのための場所をもっと残したいと思っています。',
+      aboutThanks: 'プロジェクトを支えてくださり、ありがとうございます。本当に大切に思っています。'
     }
   },
   tripsphere: {
