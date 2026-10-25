@@ -152,8 +152,8 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       navSocials: 'Соцсети',
       navContact: 'Связь',
       navSupport: 'Поддержка',
-      dropdownAppName: 'Странно или нормально?',
-      modalAppName: 'Странно или нормально?',
+      dropdownAppName: 'Стрём или норм?',
+      modalAppName: 'Стрём или норм?',
       modalTagline: 'Живые вопросы. Честные ответы.',
       modalDescription: 'Игра, которая сближает друзей через неожиданные вопросы и настоящие разговоры.',
       downloadOn: 'Скачать в',
@@ -344,8 +344,8 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       privacy: 'プライバシーポリシー'
     },
     ru: {
-      title: 'Странно или нормально?',
-      appName: 'Странно или нормально?',
+      title: 'Стрём или норм?',
+      appName: 'Стрём или норм?',
       tagline: 'Живые вопросы. Честные ответы.',
       description: 'Социальная игра с вопросами, где люди голосуют, сравнивают мнения и узнают, что другие считают странным или совершенно нормальным.',
       feature1Title: 'Спрашивай',
