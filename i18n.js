@@ -179,6 +179,45 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       aboutParagraph2: 'Friendsphere.app появился из другой идеи: создавать приложения, которые помогают людям находить близких по интересам - не только для переписки, но и для настоящих встреч, совместных идей, поездок и впечатлений.',
       aboutParagraph3: 'Мир все сильнее уходит в виртуальное пространство. Но мне хочется, чтобы в нем оставалось больше места для реальной жизни.',
       aboutThanks: 'Спасибо за поддержку.'
+    },
+    pt: {
+      brand: 'Friendsphere.app',
+      subtitle: 'Criamos aplicativos que ajudam as pessoas a se conectarem.',
+      explore: 'Explorar aplicativos',
+      learn: 'Saiba mais',
+      libraryTitle: 'Explorar aplicativos',
+      librarySubtitle: 'Descubra aplicativos feitos para conexões reais.',
+      navApps: 'Aplicativos',
+      navSocials: 'Redes sociais',
+      navContact: 'Contato',
+      navSupport: 'Suporte',
+      dropdownAppName: 'Estranho ou normal?',
+      modalAppName: 'Estranho ou normal?',
+      modalTagline: 'Perguntas divertidas. Respostas sinceras.',
+      modalDescription: 'Um jogo que aproxima amigos com perguntas inesperadas e conversas reais.',
+      downloadOn: 'Baixe na',
+      getItOn: 'Disponível no',
+      comingSoonSmall: 'Em breve',
+      privacy: 'Política de Privacidade',
+      feature1Title: 'Pergunte',
+      feature1Text: 'Centenas de perguntas inusitadas.',
+      feature2Title: 'Conecte-se',
+      feature2Text: 'Conheça melhor seus amigos.',
+      feature3Title: 'Divirta-se',
+      feature3Text: 'Respostas sinceras tornam tudo real.',
+      tripsphereTagline: 'Encontre companheiros de viagem. Viajem juntos.',
+      tripsphereDescription: 'Um aplicativo de viagens para conhecer pessoas que querem compartilhar viagens, rotas e dicas práticas.',
+      tripsphereFeature1Title: 'Conecte-se',
+      tripsphereFeature1Text: 'Encontre pessoas para viagens em grupo.',
+      tripsphereFeature2Title: 'Viaje',
+      tripsphereFeature2Text: 'Planejem rotas juntos.',
+      tripsphereFeature3Title: 'Dicas',
+      tripsphereFeature3Text: 'Troquem conselhos práticos.',
+      aboutTitle: 'Por que Friendsphere',
+      aboutText: 'O objetivo original das redes sociais era ajudar as pessoas a encontrarem umas às outras. Com o tempo, muita coisa mudou: cada vez mais, o objetivo principal passou a ser nos manter diante das telas de celulares e computadores pelo maior tempo possível.',
+      aboutParagraph2: 'O Friendsphere.app nasceu de uma ideia diferente: criar aplicativos que ajudem as pessoas a encontrar outras com interesses em comum - não apenas para conversar, mas para encontros reais, ideias compartilhadas, viagens e experiências.',
+      aboutParagraph3: 'O mundo está indo cada vez mais para o virtual. Mas quero que ainda haja nele mais espaço para a vida real.',
+      aboutThanks: 'Obrigado pelo seu apoio.'
     }
   },
   tripsphere: {
@@ -241,6 +280,21 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       downloadOn: 'Скачать в',
       getItOn: 'Доступно в',
       privacy: 'Политика конфиденциальности'
+    },
+    pt: {
+      title: 'Tripsphere',
+      appName: 'Tripsphere',
+      tagline: 'Encontre companheiros de viagem. Viajem juntos. Compartilhem dicas locais.',
+      description: 'O Tripsphere ajuda viajantes a conhecer pessoas que vão na mesma direção, fazer viagens em grupo e trocar dicas práticas pelo caminho.',
+      feature1Title: 'Encontre',
+      feature1Text: 'Encontre pessoas que querem viajar na mesma direção.',
+      feature2Title: 'Viajem juntos',
+      feature2Text: 'Participe de viagens em grupo e planeje rotas com viajantes compatíveis.',
+      feature3Title: 'Compartilhe dicas',
+      feature3Text: 'Troque dicas práticas antes e durante a viagem.',
+      downloadOn: 'Baixe na',
+      getItOn: 'Disponível no',
+      privacy: 'Política de Privacidade'
     }
   },
   weirdOrNormal: {
@@ -303,6 +357,21 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       downloadOn: 'Скачать в',
       getItOn: 'Доступно в',
       privacy: 'Политика конфиденциальности'
+    },
+    pt: {
+      title: 'Estranho ou normal?',
+      appName: 'Estranho ou normal?',
+      tagline: 'Perguntas divertidas. Respostas sinceras.',
+      description: 'Um jogo social de perguntas em que as pessoas votam, comparam opiniões e descobrem o que os outros consideram estranho ou totalmente normal.',
+      feature1Title: 'Pergunte',
+      feature1Text: 'Crie suas próprias perguntas e veja o que as pessoas pensam.',
+      feature2Title: 'Vote',
+      feature2Text: 'Compartilhe sua opinião e compare-a com a comunidade.',
+      feature3Title: 'Converse',
+      feature3Text: 'Leia comentários e participe de conversas reais.',
+      downloadOn: 'Baixe na',
+      getItOn: 'Disponível no',
+      privacy: 'Política de Privacidade'
     }
   }
 };
