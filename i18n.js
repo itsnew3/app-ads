@@ -58,9 +58,8 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       tripsphereFeature3Title: 'Tipps',
       tripsphereFeature3Text: 'Tauscht praktische Tipps aus.',
       aboutTitle: 'Warum Friendsphere',
-      aboutText: 'Das ursprüngliche Ziel sozialer Netzwerke war es, Menschen dabei zu helfen, einander zu finden. Mit der Zeit hat sich vieles verändert: Immer öfter besteht ihr Hauptziel darin, uns möglichst lange vor den Bildschirmen unserer Smartphones und Computer zu halten.',
-      aboutParagraph2: 'Friendsphere.app entstand aus einer anderen Idee: Apps zu entwickeln, die Menschen mit ähnlichen Interessen zusammenbringen - nicht nur zum Schreiben, sondern für echte Begegnungen, gemeinsame Ideen, Reisen und Erlebnisse.',
-      aboutParagraph3: 'Die Welt verlagert sich immer mehr ins Virtuelle. Aber ich möchte, dass darin mehr Raum für das echte Leben bleibt.',
+      aboutText: 'Soziale Netzwerke wurden geschaffen, um Menschen zusammenzubringen. Heute sind sie allzu oft darauf ausgelegt, uns vor den Bildschirmen zu halten.',
+      aboutParagraph2: 'Friendsphere.app verfolgt eine andere Idee: Wir entwickeln Apps, die Menschen mit gemeinsamen Interessen zusammenbringen, damit sie sich treffen, zusammen reisen und Erlebnisse teilen können.',
       aboutThanks: 'Danke für deine Unterstützung.'
     },
     es: {
@@ -97,9 +96,8 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       tripsphereFeature3Title: 'Consejos',
       tripsphereFeature3Text: 'Intercambien consejos prácticos.',
       aboutTitle: 'Por qué Friendsphere',
-      aboutText: 'El objetivo original de las redes sociales era ayudar a las personas a encontrarse. Con el tiempo, muchas cosas han cambiado: cada vez más, su objetivo principal es mantenernos frente a las pantallas de nuestros teléfonos y ordenadores el mayor tiempo posible.',
-      aboutParagraph2: 'Friendsphere.app nació de una idea diferente: crear apps que ayuden a las personas a encontrar a otras con intereses afines, no solo para conversar, sino para encuentros reales, ideas compartidas, viajes y experiencias.',
-      aboutParagraph3: 'El mundo se traslada cada vez más a lo virtual. Pero quiero que en él siga habiendo más espacio para la vida real.',
+      aboutText: 'Las redes sociales se crearon para ayudar a las personas a encontrarse. Hoy, con demasiada frecuencia, están diseñadas para mantenernos frente a las pantallas.',
+      aboutParagraph2: 'Friendsphere.app propone algo diferente: creamos apps que ayudan a personas con intereses en común a conectar, conocerse en persona, viajar y compartir experiencias.',
       aboutThanks: 'Gracias por tu apoyo.'
     },
     ja: {
@@ -136,9 +134,8 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       tripsphereFeature3Title: 'ヒント',
       tripsphereFeature3Text: '役立つ旅のヒントを交換しよう。',
       aboutTitle: 'Friendsphereの想い',
-      aboutText: 'ソーシャルネットワークが本来目指していたのは、人々が出会えるようにすることでした。時がたつにつれ、多くのことが変わりました。今では、スマートフォンやコンピューターの画面の前にできるだけ長く留めることが主な目的になりつつあります。',
-      aboutParagraph2: 'Friendsphere.appは、別の考えから生まれました。同じ興味を持つ人と出会えるアプリをつくること。チャットのためだけでなく、実際に会うこと、アイデアを共有すること、旅や体験のために。',
-      aboutParagraph3: '世界はますますバーチャルな空間へ向かっています。それでも、その中に現実の暮らしのための場所がもっと残ってほしいと思っています。',
+      aboutText: 'SNSは、人と人が出会うために生まれました。けれど今は、私たちを画面に引き留めるための仕組みが増えています。',
+      aboutParagraph2: 'Friendsphere.appが目指すのは、共通の興味を持つ人と出会い、実際に会い、一緒に旅をして、体験を分かち合えるアプリをつくることです。',
       aboutThanks: '応援ありがとうございます。'
     },
     ru: {
@@ -175,9 +172,8 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       tripsphereFeature3Title: 'Советы',
       tripsphereFeature3Text: 'Обменивайтесь полезными советами.',
       aboutTitle: 'Почему Friendsphere',
-      aboutText: 'Изначально социальные сети создавались, чтобы помогать людям находить друг друга. Со временем многое изменилось: все чаще их главная цель - удерживать нас у экранов телефонов и компьютеров как можно дольше.',
-      aboutParagraph2: 'Friendsphere.app появился из другой идеи: создавать приложения, которые помогают людям находить близких по интересам - не только для переписки, но и для настоящих встреч, совместных идей, поездок и впечатлений.',
-      aboutParagraph3: 'Мир все сильнее уходит в виртуальное пространство. Но мне хочется, чтобы в нем оставалось больше места для реальной жизни.',
+      aboutText: 'Социальные сети создавались, чтобы помогать людям находить друг друга. Сегодня они слишком часто созданы, чтобы удерживать нас у экранов.',
+      aboutParagraph2: 'Friendsphere.app — про другое: мы создаём приложения, которые помогают находить близких по интересам людей, встречаться, путешествовать и проживать впечатления вместе.',
       aboutThanks: 'Спасибо за поддержку.'
     },
     pt: {
@@ -214,9 +210,8 @@ window.FRIENDSPHERE_TRANSLATIONS = {
       tripsphereFeature3Title: 'Dicas',
       tripsphereFeature3Text: 'Troquem conselhos práticos.',
       aboutTitle: 'Por que Friendsphere',
-      aboutText: 'O objetivo original das redes sociais era ajudar as pessoas a encontrarem umas às outras. Com o tempo, muita coisa mudou: cada vez mais, o objetivo principal passou a ser nos manter diante das telas de celulares e computadores pelo maior tempo possível.',
-      aboutParagraph2: 'O Friendsphere.app nasceu de uma ideia diferente: criar aplicativos que ajudem as pessoas a encontrar outras com interesses em comum - não apenas para conversar, mas para encontros reais, ideias compartilhadas, viagens e experiências.',
-      aboutParagraph3: 'O mundo está indo cada vez mais para o virtual. Mas quero que ainda haja nele mais espaço para a vida real.',
+      aboutText: 'As redes sociais foram criadas para ajudar as pessoas a se encontrarem. Hoje, muitas vezes, são feitas para nos manter presos às telas.',
+      aboutParagraph2: 'O Friendsphere.app tem outra proposta: criamos aplicativos que ajudam pessoas com interesses em comum a se conectar, se encontrar, viajar e viver experiências juntas.',
       aboutThanks: 'Obrigado pelo seu apoio.'
     }
   },
